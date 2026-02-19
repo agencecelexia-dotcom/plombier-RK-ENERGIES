@@ -20,6 +20,7 @@ import {
   Trash2,
   CheckCircle,
   BookOpen,
+  Info,
 } from "lucide-react";
 import type { AnalyticsEvent, Submission } from "@/lib/storage";
 
@@ -508,6 +509,17 @@ export function DashboardClient({ initialEvents, initialSubmissions }: Dashboard
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+        {/* Welcome banner */}
+        <div className="mb-6 bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 flex items-start gap-3">
+          <Info className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
+          <div>
+            <p className="text-white font-medium">Bonjour Thomas !</p>
+            <p className="text-sm text-slate-400 mt-0.5">
+              Les donnees affichees sont factices et servent uniquement a des fins de demonstration.
+            </p>
+          </div>
+        </div>
+
         {/* Controls */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           {/* Tabs */}
