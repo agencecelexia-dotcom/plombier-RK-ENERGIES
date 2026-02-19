@@ -90,7 +90,7 @@ export function Header() {
             {/* CTA + Mobile Menu */}
             <div className="flex items-center gap-3">
               <Button asChild className="hidden sm:flex bg-destructive hover:bg-destructive/90 text-white">
-                <a href={siteConfig.phoneHref}>
+                <a href={siteConfig.phoneHref} data-track="header-appel">
                   <Phone className="w-4 h-4 mr-2" />
                   {siteConfig.phone}
                 </a>

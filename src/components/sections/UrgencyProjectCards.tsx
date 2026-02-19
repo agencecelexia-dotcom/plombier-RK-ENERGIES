@@ -38,7 +38,7 @@ export function UrgencyProjectCards() {
                   size="lg"
                   className="bg-destructive hover:bg-destructive/90 text-white text-base px-8"
                 >
-                  <a href={siteConfig.phoneHref}>
+                  <a href={siteConfig.phoneHref} data-track="urgence-card-appel">
                     <Phone className="w-5 h-5 mr-2" />
                     Appeler maintenant
                   </a>
@@ -71,7 +71,7 @@ export function UrgencyProjectCards() {
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-white text-base px-8"
                 >
-                  <Link href="/contact">
+                  <Link href="/contact" data-track="projet-card-devis">
                     <FileText className="w-5 h-5 mr-2" />
                     Demander un devis gratuit
                   </Link>

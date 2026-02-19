@@ -27,11 +27,35 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Simulation — a brancher avec votre service d'envoi
-    setSubmitted(true);
     setError(false);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      nom: formData.get("nom") as string,
+      telephone: formData.get("telephone") as string,
+      email: formData.get("email") as string,
+      service: formData.get("service") as string || "Autre",
+      message: formData.get("message") as string,
+      _gotcha: formData.get("_gotcha") as string,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    }
   }
 
   if (submitted) {
@@ -115,7 +139,7 @@ export function ContactForm() {
         </Label>
       </div>
 
-      <Button type="submit" size="lg" className="w-full">
+      <Button type="submit" size="lg" className="w-full" data-track="formulaire-contact-envoi">
         <Send className="w-4 h-4 mr-2" />
         Envoyer ma demande
       </Button>

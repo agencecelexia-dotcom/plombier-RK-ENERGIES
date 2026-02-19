@@ -70,7 +70,7 @@ export function HeroSection({
                   size="lg"
                   className="bg-destructive hover:bg-destructive/90 text-white text-base px-8 py-6"
                 >
-                  <a href={ctaPrimary.href}>
+                  <a href={ctaPrimary.href} data-track="hero-appel">
                     <Phone className="w-5 h-5 mr-2" />
                     {ctaPrimary.label}
                   </a>
@@ -83,7 +83,7 @@ export function HeroSection({
                   variant="outline"
                   className="border-white text-white hover:bg-white/10 text-base px-8 py-6"
                 >
-                  <Link href={ctaSecondary.href}>
+                  <Link href={ctaSecondary.href} data-track="hero-devis">
                     {ctaSecondary.label}
                   </Link>
                 </Button>
@@ -150,13 +150,13 @@ export function HeroSection({
                 size="lg"
                 className="bg-destructive hover:bg-destructive/90 text-white"
               >
-                <a href={siteConfig.phoneHref}>
+                <a href={siteConfig.phoneHref} data-track="service-hero-appel">
                   <Phone className="w-5 h-5 mr-2" />
                   Appelez-nous — {siteConfig.phone}
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="/contact">Demander un devis gratuit</Link>
+                <Link href="/contact" data-track="service-hero-devis">Demander un devis gratuit</Link>
               </Button>
             </div>
           </div>

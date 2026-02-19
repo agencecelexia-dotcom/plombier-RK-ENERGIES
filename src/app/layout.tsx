@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileCallCTA } from "@/components/layout/MobileCallCTA";
 import { SchemaOrg } from "@/components/seo/SchemaOrg";
+import { AnalyticsTracker } from "@/components/features/AnalyticsTracker";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
@@ -56,6 +57,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <MobileCallCTA />
+        <AnalyticsTracker />
       </body>
     </html>
   );

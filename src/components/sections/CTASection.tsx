@@ -42,7 +42,7 @@ export function CTASection({
               size="lg"
               className="bg-destructive hover:bg-destructive/90 text-white text-base px-8 py-6"
             >
-              <a href={siteConfig.phoneHref}>
+              <a href={siteConfig.phoneHref} data-track="cta-appel-bandeau">
                 <Phone className="w-5 h-5 mr-2" />
                 Appelez maintenant — {siteConfig.phone}
               </a>
@@ -55,7 +55,7 @@ export function CTASection({
               variant="outline"
               className="border-white text-white hover:bg-white/10 text-base px-8 py-6"
             >
-              <Link href="/contact">
+              <Link href="/contact" data-track="cta-devis-bandeau">
                 <FileText className="w-5 h-5 mr-2" />
                 Demander un devis gratuit
               </Link>
