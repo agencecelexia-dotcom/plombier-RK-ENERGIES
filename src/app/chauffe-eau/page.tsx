@@ -58,7 +58,7 @@ export default function ChauffeEauPage() {
           title="Nos services chauffe-eau"
           subtitle="Installation, remplacement, entretien et dépannage de tous types de chauffe-eau."
         />
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6 stagger-children" data-animate="fade-up">
           {servicesChauffeEau.map((s) => (
             <Card key={s.title}>
               <CardContent className="p-6 flex gap-4">
@@ -66,7 +66,7 @@ export default function ChauffeEauPage() {
                   <s.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-primary mb-1">{s.title}</h3>
+                  <h3 className="font-normal text-foreground mb-1">{s.title}</h3>
                   <p className="text-sm text-muted-foreground">{s.desc}</p>
                 </div>
               </CardContent>
@@ -76,7 +76,7 @@ export default function ChauffeEauPage() {
       </SectionContainer>
 
       {/* Comparatif */}
-      <SectionContainer variant="gray">
+      <SectionContainer variant="warm">
         <SectionHeading
           title="Électrique vs Thermodynamique"
           subtitle="Comparez les deux technologies pour faire le bon choix."

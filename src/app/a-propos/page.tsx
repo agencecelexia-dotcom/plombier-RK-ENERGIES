@@ -81,7 +81,7 @@ export default function AProposPage() {
       </SectionContainer>
 
       {/* Équipe */}
-      <SectionContainer variant="gray">
+      <SectionContainer variant="warm">
         <SectionHeading
           title="Notre équipe"
           subtitle="Des professionnels qualifiés et passionnés à votre service."
@@ -98,11 +98,11 @@ export default function AProposPage() {
       {/* Chiffres clés */}
       <SectionContainer>
         <SectionHeading title="En quelques chiffres" />
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 stagger-children" data-animate="fade-up">
           {chiffres.map((c) => (
             <div key={c.label} className="text-center">
               <c.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-              <div className="text-3xl md:text-4xl font-extrabold text-primary mb-1">
+              <div className="text-3xl md:text-4xl font-normal text-foreground mb-1">
                 {c.value}
               </div>
               <p className="text-sm text-muted-foreground">{c.label}</p>
@@ -119,7 +119,7 @@ export default function AProposPage() {
             <Card key={v.title}>
               <CardContent className="p-6 text-center">
                 <v.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-primary mb-2">{v.title}</h3>
+                <h3 className="text-lg font-normal text-foreground mb-2">{v.title}</h3>
                 <p className="text-sm text-muted-foreground">{v.desc}</p>
               </CardContent>
             </Card>
@@ -133,7 +133,7 @@ export default function AProposPage() {
           title="Certifications et assurances"
           subtitle="Votre tranquillité d'esprit est notre priorité."
         />
-        <div className="max-w-2xl mx-auto space-y-4">
+        <div className="max-w-2xl mx-auto space-y-4" data-animate="fade-up">
           {[
             { label: "Certification RGE QualiPAC", detail: siteConfig.rge },
             { label: "Assurance décennale", detail: siteConfig.assuranceDecennale },

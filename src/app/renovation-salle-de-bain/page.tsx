@@ -55,13 +55,13 @@ export default function SalleDeBainPage() {
           title="Nos types de projets"
           subtitle="Chaque salle de bain est unique. Nous adaptons nos solutions à vos besoins et votre budget."
         />
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 stagger-children" data-animate="fade-up">
           {projets.map((p) => (
             <div key={p.title} className="space-y-4">
               <ImagePlaceholder prompt={p.image} src={pageImages[p.imageKey] || undefined} aspectRatio="4/3" alt={p.title} />
               <div className="flex items-center gap-2">
                 <p.icon className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-bold text-primary">{p.title}</h3>
+                <h3 className="text-lg font-normal text-foreground">{p.title}</h3>
               </div>
               <p className="text-sm text-muted-foreground">{p.desc}</p>
             </div>
@@ -70,7 +70,7 @@ export default function SalleDeBainPage() {
       </SectionContainer>
 
       {/* Process */}
-      <SectionContainer variant="gray">
+      <SectionContainer variant="warm">
         <SectionHeading
           title="Notre méthode en 4 étapes"
           subtitle="Un accompagnement clé en main pour un résultat à la hauteur de vos attentes."
@@ -84,7 +84,7 @@ export default function SalleDeBainPage() {
               <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
                 {i + 1}
               </div>
-              <h3 className="font-bold text-primary mb-2">{e.title}</h3>
+              <h3 className="font-normal text-foreground mb-2">{e.title}</h3>
               <p className="text-sm text-muted-foreground">{e.desc}</p>
             </div>
           ))}

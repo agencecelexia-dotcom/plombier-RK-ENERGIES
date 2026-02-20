@@ -143,7 +143,7 @@ export function ContactForm() {
         </Label>
       </div>
 
-      <Button type="submit" size="lg" className="w-full" data-track="formulaire-contact-envoi" disabled={isSubmitting}>
+      <Button type="submit" variant="cta" size="lg" className="w-full" data-track="formulaire-contact-envoi" disabled={isSubmitting}>
         <Send className="w-4 h-4 mr-2" />
         {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
       </Button>

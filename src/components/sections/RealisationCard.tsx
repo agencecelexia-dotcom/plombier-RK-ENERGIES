@@ -10,11 +10,11 @@ interface RealisationCardProps {
 
 export function RealisationCard({ realisation }: RealisationCardProps) {
   return (
-    <Card className="overflow-hidden group hover:shadow-lg transition-shadow">
+    <Card className="overflow-hidden" data-animate="scale-up">
       <div className="grid grid-cols-2">
         <div className="relative">
           <div className="absolute top-2 left-2 z-10">
-            <Badge variant="destructive" className="text-xs">
+            <Badge variant="warm" className="text-xs">
               Avant
             </Badge>
           </div>
@@ -28,7 +28,7 @@ export function RealisationCard({ realisation }: RealisationCardProps) {
         </div>
         <div className="relative">
           <div className="absolute top-2 left-2 z-10">
-            <Badge className="bg-brand-green text-white text-xs">
+            <Badge variant="success" className="text-xs">
               Après
             </Badge>
           </div>
@@ -50,7 +50,7 @@ export function RealisationCard({ realisation }: RealisationCardProps) {
             {realisation.city}
           </span>
         </div>
-        <h3 className="font-bold text-sm text-primary">{realisation.title}</h3>
+        <h3 className="font-semibold text-sm text-foreground">{realisation.title}</h3>
         <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
           {realisation.description}
         </p>

@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { Phone, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { siteConfig } from "@/config/site";
-import { sectionImages } from "@/config/images";
 
 interface CTASectionProps {
   title?: string;
@@ -17,19 +15,14 @@ export function CTASection({
   variant = "devis",
 }: CTASectionProps) {
   return (
-    <section className="relative py-16 md:py-20">
-      <div className="absolute inset-0">
-        <ImagePlaceholder
-          prompt="Vue aérienne plongée d'un plombier en uniforme bleu travaillant sur tuyauterie cuivre neuve dans maison en construction, lumière naturelle, tons chauds, photo réaliste, ratio 21:9"
-          src={sectionImages["cta-bandeau"] || undefined}
-          aspectRatio="21/9"
-          alt="Plombier au travail"
-          overlay
-          className="w-full h-full rounded-none"
-        />
-      </div>
+    <section className="relative py-16 md:py-20 bg-surface-dark overflow-hidden">
+      {/* Decorative shapes */}
+      <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-white/[0.02] -translate-y-1/3 translate-x-1/3" aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-accent-warm/[0.05] translate-y-1/3 -translate-x-1/3" aria-hidden="true" />
+      <div className="absolute top-1/2 left-1/4 w-32 h-32 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '16px 16px' }} aria-hidden="true" />
+
       <div className="relative z-20 container mx-auto px-4 lg:px-8 max-w-7xl text-center">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading text-white">
           {title}
         </h2>
         {subtitle && (
@@ -42,7 +35,8 @@ export function CTASection({
             <Button
               asChild
               size="lg"
-              className="bg-destructive hover:bg-destructive/90 text-white text-base px-8 py-6"
+              variant="cta"
+              className="text-base px-8 py-6 btn-pulse"
             >
               <a href={siteConfig.phoneHref} data-track="cta-appel-bandeau">
                 <Phone className="w-5 h-5 mr-2" />

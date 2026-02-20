@@ -34,7 +34,7 @@ export function ServicePageLayout({
 
       {children}
 
-      {faqs && faqs.length > 0 && <FAQSection faqs={faqs} />}
+      {faqs && faqs.length > 0 && <FAQSection faqs={faqs} variant="warm" />}
 
       <CTASection variant={ctaVariant} />
     </>

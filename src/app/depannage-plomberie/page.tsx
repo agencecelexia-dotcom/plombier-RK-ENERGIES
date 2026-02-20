@@ -57,15 +57,15 @@ export default function DepannagePage() {
           title="Les urgences que nous prenons en charge"
           subtitle="Quel que soit votre problème, nous avons la solution."
         />
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6 stagger-children" data-animate="fade-up">
           {urgences.map((u) => (
-            <Card key={u.title} className="border-destructive/20">
+            <Card key={u.title} className="border-accent-warm/20">
               <CardContent className="p-6 flex gap-4">
-                <div className="w-12 h-12 rounded-lg bg-destructive/10 flex items-center justify-center shrink-0">
-                  <u.icon className="w-6 h-6 text-destructive" />
+                <div className="w-12 h-12 rounded-lg bg-accent-warm/10 flex items-center justify-center shrink-0">
+                  <u.icon className="w-6 h-6 text-accent-warm" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-primary mb-1">{u.title}</h3>
+                  <h3 className="font-normal text-foreground mb-1">{u.title}</h3>
                   <p className="text-sm text-muted-foreground">{u.desc}</p>
                 </div>
               </CardContent>
@@ -75,7 +75,7 @@ export default function DepannagePage() {
       </SectionContainer>
 
       {/* Comment ça marche */}
-      <SectionContainer variant="gray">
+      <SectionContainer variant="warm">
         <SectionHeading
           title="Comment ça marche ?"
           subtitle="3 étapes simples pour un dépannage sans stress."
@@ -86,13 +86,13 @@ export default function DepannagePage() {
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary flex items-center justify-center">
                 <span className="text-2xl font-bold text-primary-foreground">{e.num}</span>
               </div>
-              <h3 className="text-lg font-bold text-primary mb-2">{e.title}</h3>
+              <h3 className="text-lg font-normal text-foreground mb-2">{e.title}</h3>
               <p className="text-sm text-muted-foreground">{e.desc}</p>
             </div>
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Button asChild size="lg" className="bg-destructive hover:bg-destructive/90 text-white text-base px-8 py-6">
+          <Button asChild size="lg" variant="cta" className="text-base px-8 py-6">
             <a href={siteConfig.phoneHref}>
               <Phone className="w-5 h-5 mr-2" />
               Appelez maintenant — {siteConfig.phone}
@@ -118,7 +118,7 @@ export default function DepannagePage() {
             ].map((t, i) => (
               <div key={t.service} className={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? "bg-muted/50" : ""}`}>
                 <span className="text-sm font-medium">{t.service}</span>
-                <span className="text-sm font-bold text-primary">{t.prix}</span>
+                <span className="text-sm font-semibold text-accent-warm">{t.prix}</span>
               </div>
             ))}
           </div>

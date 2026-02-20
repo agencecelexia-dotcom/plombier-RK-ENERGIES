@@ -59,13 +59,13 @@ export default function ChauffagePage() {
           title="Nos solutions de chauffage"
           subtitle="Installation, remplacement et dépannage de tous types de systèmes de chauffage."
         />
-        <div className="space-y-12">
+        <div className="space-y-12" data-animate="fade-up">
           {servicesChauffage.map((s, i) => (
-            <div key={s.title} className={`grid lg:grid-cols-2 gap-8 items-center`}>
+            <div key={s.title} className={`grid lg:grid-cols-2 gap-8 items-center`} data-animate={i % 2 === 0 ? "slide-left" : "slide-right"}>
               <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                 <div className="flex items-center gap-3 mb-4">
                   <s.icon className="w-6 h-6 text-primary" />
-                  <h3 className="text-xl font-bold text-primary">{s.title}</h3>
+                  <h3 className="text-xl font-normal text-foreground">{s.title}</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
@@ -78,7 +78,7 @@ export default function ChauffagePage() {
       </SectionContainer>
 
       {/* Entretien */}
-      <SectionContainer variant="gray" id="entretien">
+      <SectionContainer variant="warm" id="entretien">
         <SectionHeading
           badge="Obligatoire"
           title="Entretien annuel chaudière"
@@ -88,7 +88,7 @@ export default function ChauffagePage() {
           <Card>
             <CardContent className="p-8">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-bold text-primary">Ce qui est inclus</h3>
+                <h3 className="text-lg font-normal text-foreground">Ce qui est inclus</h3>
                 <Badge className="bg-brand-green text-white">À partir de 89 EUR TTC</Badge>
               </div>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -108,7 +108,7 @@ export default function ChauffagePage() {
       <SectionContainer>
         <div className="max-w-3xl mx-auto text-center">
           <ShieldCheck className="w-16 h-16 text-brand-green mx-auto mb-4" />
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+          <h2 className="text-2xl md:text-3xl font-normal text-foreground mb-4">
             Certifié RGE — Éligible aux aides de l&apos;État
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-6">

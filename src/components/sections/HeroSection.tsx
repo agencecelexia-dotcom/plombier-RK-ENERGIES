@@ -44,9 +44,10 @@ export function HeroSection({
             sizes="100vw"
           />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-surface-dark/95 via-primary/70 to-primary/30 z-10" />
         <div className="relative z-20 container mx-auto px-4 lg:px-8 max-w-7xl py-20">
           <div className="max-w-2xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-white leading-tight">
               {title}
             </h1>
             {subtitle && (
@@ -59,7 +60,7 @@ export function HeroSection({
                 {badges.map((badge) => (
                   <Badge
                     key={badge}
-                    variant="secondary"
+                    variant="warm"
                     className="bg-white/15 text-white border-white/20 backdrop-blur-sm text-sm"
                   >
                     {badge}
@@ -72,7 +73,8 @@ export function HeroSection({
                 <Button
                   asChild
                   size="lg"
-                  className="bg-destructive hover:bg-destructive/90 text-white text-base px-8 py-6"
+                  variant="cta"
+                  className="text-base px-8 py-6 btn-pulse"
                 >
                   <a href={ctaPrimary.href} data-track="hero-appel">
                     <Phone className="w-5 h-5 mr-2" />
@@ -116,8 +118,9 @@ export function HeroSection({
             priority={true}
           />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-surface-dark/90 via-primary/60 to-primary/30 z-10" />
         <div className="relative z-20 container mx-auto px-4 lg:px-8 max-w-7xl text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-white">
             {title}
           </h1>
           {subtitle && (
@@ -132,11 +135,11 @@ export function HeroSection({
 
   // variant === "service"
   return (
-    <section className="py-12 md:py-20 bg-muted">
+    <section className="py-12 md:py-20 bg-surface-warm">
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-foreground leading-tight">
               {title}
             </h1>
             {subtitle && (
@@ -164,7 +167,7 @@ export function HeroSection({
               <Button
                 asChild
                 size="lg"
-                className="bg-destructive hover:bg-destructive/90 text-white"
+                variant="cta"
               >
                 <a href={siteConfig.phoneHref} data-track="service-hero-appel">
                   <Phone className="w-5 h-5 mr-2" />
@@ -182,7 +185,7 @@ export function HeroSection({
               src={imagePlaceholder.src}
               aspectRatio={imagePlaceholder.aspectRatio || "16/9"}
               alt={title}
-              className={cn("shadow-xl")}
+              className={cn("shadow-xl rounded-2xl")}
               priority={true}
             />
           </div>

@@ -9,14 +9,16 @@ export function UrgencyProjectCards() {
   return (
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
+        <div className="text-center mb-10" data-animate="fade-up">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-foreground">
             Urgence ou projet ?
           </h2>
+          <div className="mt-4 w-16 h-1 rounded-full bg-accent-warm mx-auto" />
         </div>
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {/* Carte Urgence */}
-          <div className="relative rounded-2xl overflow-hidden group">
+          <div className="relative rounded-2xl overflow-hidden group" data-animate="slide-left">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-destructive z-10" />
             <div className="overflow-hidden">
               <div className="group-hover:scale-105 transition-transform duration-500">
                 <ImagePlaceholder
@@ -28,10 +30,10 @@ export function UrgencyProjectCards() {
                   className="w-full rounded-none"
                 >
                   <div className="text-center p-8">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-destructive/20 flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-accent-warm/20 flex items-center justify-center">
                       <Phone className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                    <h3 className="text-2xl md:text-3xl font-normal font-heading text-white mb-2">
                       J&apos;ai une urgence
                     </h3>
                     <p className="text-white/80 mb-6">
@@ -40,7 +42,8 @@ export function UrgencyProjectCards() {
                     <Button
                       asChild
                       size="lg"
-                      className="bg-destructive hover:bg-destructive/90 text-white text-base px-8"
+                      variant="cta"
+                      className="text-base px-8"
                     >
                       <a href={siteConfig.phoneHref} data-track="urgence-card-appel">
                         <Phone className="w-5 h-5 mr-2" />
@@ -54,7 +57,8 @@ export function UrgencyProjectCards() {
           </div>
 
           {/* Carte Projet */}
-          <div className="relative rounded-2xl overflow-hidden group">
+          <div className="relative rounded-2xl overflow-hidden group" data-animate="slide-right">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-brand-green z-10" />
             <div className="overflow-hidden">
               <div className="group-hover:scale-105 transition-transform duration-500">
                 <ImagePlaceholder
@@ -69,7 +73,7 @@ export function UrgencyProjectCards() {
                     <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
                       <FileText className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                    <h3 className="text-2xl md:text-3xl font-normal font-heading text-white mb-2">
                       Je planifie des travaux
                     </h3>
                     <p className="text-white/80 mb-6">

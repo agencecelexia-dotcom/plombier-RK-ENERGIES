@@ -43,7 +43,7 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Formulaire */}
           <div className="lg:col-span-3">
-            <h2 className="text-2xl font-bold text-primary mb-6">
+            <h2 className="text-2xl font-normal text-foreground mb-6">
               Demandez votre devis gratuit
             </h2>
             <ContactForm />
@@ -51,7 +51,7 @@ export default function ContactPage() {
 
           {/* Infos contact */}
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-primary mb-6">
+            <h2 className="text-2xl font-normal text-foreground mb-6">
               Nos coordonnées
             </h2>
 
@@ -59,14 +59,14 @@ export default function ContactPage() {
               <CardContent className="p-6 space-y-6">
                 <a
                   href={siteConfig.phoneHref}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-destructive/5 hover:bg-destructive/10 transition-colors"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-accent-warm/5 hover:bg-accent-warm/10 transition-colors"
                 >
-                  <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-destructive" />
+                  <div className="w-12 h-12 rounded-full bg-accent-warm/10 flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-accent-warm" />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground uppercase tracking-wide">Téléphone</p>
-                    <p className="text-xl font-bold text-primary">{siteConfig.phone}</p>
+                    <p className="text-xl font-bold text-foreground">{siteConfig.phone}</p>
                   </div>
                 </a>
 
@@ -111,7 +111,7 @@ export default function ContactPage() {
                     <div className="text-sm space-y-1">
                       <p>Lun-Ven : {siteConfig.openingHours.weekdays}</p>
                       <p>Samedi : {siteConfig.openingHours.saturday}</p>
-                      <p className="font-bold text-destructive">
+                      <p className="font-semibold text-accent-warm">
                         Urgences : {siteConfig.openingHours.emergency}
                       </p>
                     </div>

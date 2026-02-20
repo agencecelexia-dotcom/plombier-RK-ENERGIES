@@ -12,7 +12,7 @@ import type { FAQ } from "@/types";
 interface FAQSectionProps {
   faqs: FAQ[];
   title?: string;
-  variant?: "white" | "gray";
+  variant?: "white" | "gray" | "warm";
 }
 
 export function FAQSection({
@@ -29,11 +29,11 @@ export function FAQSection({
         }}
       />
       <SectionHeading title={title} />
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-3xl mx-auto" data-animate="fade-up">
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`faq-${index}`}>
-              <AccordionTrigger className="text-left text-base font-medium">
+            <AccordionItem key={index} value={`faq-${index}`} className="border-border/60">
+              <AccordionTrigger className="text-left text-base font-medium hover:text-accent-warm">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">

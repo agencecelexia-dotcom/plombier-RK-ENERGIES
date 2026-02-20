@@ -58,15 +58,15 @@ export default function PlomberiePage() {
           title="Nos services de plomberie"
           subtitle="De l'installation neuve à la réparation, nous intervenons sur tous vos équipements."
         />
-        <div className="space-y-12">
+        <div className="space-y-12" data-animate="fade-up">
           {servicesPlomberie.map((s, i) => (
-            <div key={s.title} className={`grid lg:grid-cols-2 gap-8 items-center ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
+            <div key={s.title} className={`grid lg:grid-cols-2 gap-8 items-center ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`} data-animate={i % 2 === 0 ? "slide-left" : "slide-right"}>
               <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                     <s.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-primary">{s.title}</h3>
+                  <h3 className="text-xl font-normal text-foreground">{s.title}</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
@@ -79,7 +79,7 @@ export default function PlomberiePage() {
       </SectionContainer>
 
       {/* Pourquoi nous choisir */}
-      <SectionContainer variant="gray">
+      <SectionContainer variant="warm">
         <SectionHeading title="Pourquoi nous choisir ?" />
         <div className="max-w-2xl mx-auto">
           <div className="grid sm:grid-cols-2 gap-4">

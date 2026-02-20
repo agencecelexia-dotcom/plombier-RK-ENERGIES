@@ -21,7 +21,7 @@ const items = [
 
 export function ReassuranceBand() {
   return (
-    <section className="bg-primary py-6" aria-label="Nos engagements">
+    <section className="bg-gradient-to-r from-primary via-primary to-surface-dark py-8" aria-label="Nos engagements">
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
           {items.map((item) => (
@@ -29,8 +29,10 @@ export function ReassuranceBand() {
               key={item.label}
               className="flex items-center gap-3 justify-center text-primary-foreground"
             >
-              <item.icon className="w-8 h-8 shrink-0 text-white/80" />
-              <span className="text-sm md:text-base font-medium">
+              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                <item.icon className="w-6 h-6 text-accent-warm" />
+              </div>
+              <span className="text-sm md:text-base font-semibold">
                 {item.label}
               </span>
             </div>

@@ -44,7 +44,7 @@ export default function BlogPage() {
       <SectionContainer>
         <div className="max-w-lg mx-auto text-center py-12">
           <BookOpen className="w-16 h-16 text-primary/20 mx-auto mb-6" />
-          <h2 className="text-2xl font-bold text-primary mb-4">
+          <h2 className="text-2xl font-normal text-foreground mb-4">
             Bientôt disponible
           </h2>
           <p className="text-muted-foreground mb-8 leading-relaxed">

@@ -66,13 +66,13 @@ export default function HomePage() {
       <UrgencyProjectCards />
 
       {/* Services */}
-      <SectionContainer variant="gray">
+      <SectionContainer variant="warm" dots>
         <SectionHeading
           badge="Nos services"
           title="Des solutions pour tous vos besoins"
           subtitle="De l'urgence au projet de rénovation, notre équipe qualifiée intervient avec professionnalisme."
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}
@@ -86,7 +86,7 @@ export default function HomePage() {
           title="Nos réalisations"
           subtitle="Découvrez nos derniers chantiers en images."
         />
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6" data-animate="fade-up">
           {featuredRealisations.map((real) => (
             <RealisationCard key={real.id} realisation={real} />
           ))}
@@ -99,14 +99,14 @@ export default function HomePage() {
       </SectionContainer>
 
       {/* Avis */}
-      <SectionContainer variant="gray">
+      <SectionContainer variant="white">
         <SectionHeading
           badge="Avis clients"
           title="Ce que disent nos clients"
         />
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <span className="text-4xl font-bold text-primary">
+            <span className="text-4xl font-normal text-foreground">
               {siteConfig.googleRating}
             </span>
             <span className="text-2xl text-muted-foreground">/5</span>
@@ -118,7 +118,7 @@ export default function HomePage() {
                 aria-hidden="true"
                 className={`w-6 h-6 ${
                   i < Math.round(siteConfig.googleRating)
-                    ? "text-yellow-500 fill-yellow-500"
+                    ? "text-accent-warm fill-accent-warm"
                     : "text-gray-200"
                 }`}
               />
@@ -128,7 +128,7 @@ export default function HomePage() {
             {siteConfig.googleReviewCount} avis Google
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 stagger-children">
           {featuredTestimonials.map((testimonial, i) => (
             <TestimonialCard key={i} testimonial={testimonial} />
           ))}

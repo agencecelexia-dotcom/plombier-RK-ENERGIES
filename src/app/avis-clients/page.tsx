@@ -45,9 +45,9 @@ export default function AvisClientsPage() {
       {/* Note globale */}
       <SectionContainer>
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-6 bg-muted rounded-2xl px-10 py-8">
+          <div className="inline-flex items-center gap-6 bg-surface-warm rounded-2xl px-10 py-8">
             <div>
-              <span className="text-6xl font-extrabold text-primary">
+              <span className="text-6xl font-normal text-foreground">
                 {siteConfig.googleRating}
               </span>
               <span className="text-2xl text-muted-foreground">/5</span>
@@ -59,7 +59,7 @@ export default function AvisClientsPage() {
                     key={i}
                     className={`w-7 h-7 ${
                       i < Math.round(siteConfig.googleRating)
-                        ? "text-yellow-500 fill-yellow-500"
+                        ? "text-accent-warm fill-accent-warm"
                         : "text-gray-200"
                     }`}
                   />
@@ -73,7 +73,7 @@ export default function AvisClientsPage() {
         </div>
 
         {/* Liste des avis */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
           {testimonials.map((testimonial, i) => (
             <TestimonialCard key={i} testimonial={testimonial} />
           ))}
