@@ -96,7 +96,7 @@ export default function PlomberiePage() {
         <SectionHeading title="Services liés" />
         <div className="flex flex-wrap justify-center gap-4">
           <Link href="/depannage-plomberie" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Dépannage plomberie</Link>
-          <Link href="/renovation-salle-de-bain" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Rénovation salle de bain</Link>
+          <Link href="/climatisation" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Climatisation</Link>
         </div>
       </SectionContainer>
     </ServicePageLayout>

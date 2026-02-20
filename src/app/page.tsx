@@ -20,8 +20,8 @@ import { faqGeneral } from "@/config/faq";
 import { heroImages } from "@/config/images";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Plombier à Lyon | Dépannage 7j/7 — Devis Gratuit",
-  description: "Durand Plomberie, votre plombier à Lyon. Dépannage 7j/7, rénovation salle de bain, chauffage. Certifié RGE. Devis gratuit.",
+  title: "Plombier chauffagiste Tarn (81) | Dépannage 7j/7 — Devis Gratuit",
+  description: "RK Energies, votre plombier chauffagiste et climaticien dans le Tarn (81). Dépannage 7j/7, chauffage, climatisation. Devis gratuit.",
   path: "/",
 });
 

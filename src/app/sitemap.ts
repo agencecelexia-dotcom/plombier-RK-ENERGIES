@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: baseUrl, lastModified, changeFrequency: "weekly", priority: 1 },
     { url: `${baseUrl}/depannage-plomberie`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/plomberie`, lastModified, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/renovation-salle-de-bain`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/climatisation`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/chauffage`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/chauffe-eau`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/realisations`, lastModified, changeFrequency: "weekly", priority: 0.7 },

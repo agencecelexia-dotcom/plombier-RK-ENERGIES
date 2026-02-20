@@ -2,133 +2,133 @@ import type { Realisation } from "@/types";
 
 export const realisations: Realisation[] = [
   {
-    id: "sdb-villeurbanne",
-    title: "Rénovation salle de bain complète",
-    category: "Salle de bain",
-    city: "Villeurbanne",
+    id: "clim-reversible-albi",
+    title: "Installation climatisation réversible",
+    category: "Climatisation",
+    city: "Albi",
     description:
-      "Transformation d'une salle de bain années 80 en espace moderne avec douche italienne, meuble vasque et miroir LED.",
+      "Installation d'un système de climatisation réversible air-air dans une maison individuelle. Confort optimal été comme hiver.",
     beforePrompt:
-      "Vieille salle de bain années 80, baignoire jaunâtre, carrelage rose fissuré, robinetterie rouillée, photo réaliste brute, ratio 4:3",
+      "Pièce de vie maison sans climatisation, chaleur visible, radiateur électrique ancien au mur, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Même salle de bain rénovée, douche italienne carrelage gris anthracite, meuble vasque bois clair, miroir LED, photo réaliste, ratio 4:3",
+      "Salon moderne avec unité intérieure climatisation murale blanche, télécommande, ambiance fraîche et confortable, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
-    id: "cuisine-lyon3",
-    title: "Réfection plomberie cuisine",
+    id: "pac-albi",
+    title: "Installation pompe à chaleur air-eau",
+    category: "Chauffage",
+    city: "Albi",
+    description:
+      "Remplacement d'une vieille chaudière fioul par une pompe à chaleur air-eau. Économies d'énergie immédiates et éligible MaPrimeRénov'.",
+    beforePrompt:
+      "Vieille chaudière fioul volumineuse dans cave sombre, tuyaux rouillés, photo réaliste, ratio 4:3",
+    afterPrompt:
+      "Pompe à chaleur air-eau compacte installée en buanderie moderne, écran digital, tuyauterie neuve, photo réaliste, ratio 4:3",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "plomberie-gaillac",
+    title: "Réfection plomberie complète",
     category: "Plomberie",
-    city: "Lyon 3e",
+    city: "Gaillac",
     description:
-      "Remplacement complet de la tuyauterie et installation d'un évier encastré avec robinet col de cygne.",
+      "Remplacement complet de la tuyauterie d'une maison ancienne avec mise aux normes de toutes les installations.",
     beforePrompt:
-      "Vieille cuisine évier inox usé, tuyauterie apparente oxydée, robinet qui goutte, photo réaliste, ratio 4:3",
+      "Tuyauterie ancienne oxydée apparente dans cave, raccords rouillés, robinetterie qui fuit, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Cuisine moderne évier encastré granit noir, robinet col de cygne chromé, tuyauterie neuve cachée, photo réaliste, ratio 4:3",
+      "Tuyauterie cuivre neuve bien rangée, raccords neufs propres, robinetterie moderne chromée, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
-    id: "chauffe-eau-caluire",
-    title: "Remplacement chauffe-eau",
+    id: "chauffe-eau-carmaux",
+    title: "Remplacement chauffe-eau thermodynamique",
     category: "Chauffe-eau",
-    city: "Caluire-et-Cuire",
+    city: "Carmaux",
     description:
-      "Remplacement d'un vieux chauffe-eau rouillé par un ballon thermodynamique classe A.",
+      "Remplacement d'un vieux chauffe-eau électrique par un ballon thermodynamique classe A — 3 fois moins de consommation.",
     beforePrompt:
-      "Vieux chauffe-eau rouillé encrassé dans placard technique, tuyaux oxydés, photo réaliste, ratio 4:3",
+      "Vieux chauffe-eau électrique rouillé dans placard technique, tuyaux oxydés, photo réaliste, ratio 4:3",
     afterPrompt:
       "Chauffe-eau thermodynamique neuf blanc, tuyauterie cuivre neuve, étiquette énergie A, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
-    id: "pac-bron",
-    title: "Installation pompe à chaleur",
+    id: "chaudiere-gaz-castres",
+    title: "Remplacement chaudière gaz condensation",
     category: "Chauffage",
-    city: "Bron",
+    city: "Castres",
     description:
-      "Remplacement d'une vieille chaudière fioul par une pompe à chaleur air-eau compacte.",
+      "Installation d'une chaudière gaz à condensation dernière génération en remplacement d'un modèle vieux de 18 ans.",
     beforePrompt:
-      "Vieille chaudière fioul volumineuse dans cave sombre, tuyaux rouillés, photo réaliste, ratio 4:3",
-    afterPrompt:
-      "Pompe à chaleur air-eau compacte installée dans buanderie moderne, écran digital, photo réaliste, ratio 4:3",
-    aspectRatio: "4/3",
-  },
-  {
-    id: "sdb-pmr-lyon6",
-    title: "Salle de bain PMR",
-    category: "Salle de bain",
-    city: "Lyon 6e",
-    description:
-      "Adaptation d'une salle de bain pour personne à mobilité réduite avec douche plain-pied et barres d'appui.",
-    beforePrompt:
-      "Salle de bain étroite avec baignoire haute, accès difficile, carrelage glissant, photo réaliste, ratio 4:3",
-    afterPrompt:
-      "Salle de bain PMR adaptée, barre d'appui chromée, siège douche rabattable, receveur plain-pied antidérapant, espace circulation large, photo réaliste, ratio 4:3",
-    aspectRatio: "4/3",
-  },
-  {
-    id: "chaudiere-tassin",
-    title: "Remplacement chaudière gaz",
-    category: "Chauffage",
-    city: "Tassin-la-Demi-Lune",
-    description:
-      "Installation d'une chaudière gaz à condensation dernière génération en remplacement d'un modèle de 20 ans.",
-    beforePrompt:
-      "Vieille chaudière gaz murale encrassée, tuyaux anciens, thermostat analogique, photo réaliste, ratio 4:3",
+      "Vieille chaudière gaz murale encrassée, tuyaux anciens, thermostat analogique vieilli, photo réaliste, ratio 4:3",
     afterPrompt:
       "Chaudière gaz condensation murale blanche moderne, écran digital vert, tuyauterie cuivre propre, thermostat connecté, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
-    id: "douche-lyon7",
-    title: "Douche italienne sur mesure",
-    category: "Salle de bain",
-    city: "Lyon 7e",
+    id: "depannage-fuite-lavaur",
+    title: "Dépannage fuite urgente",
+    category: "Plomberie",
+    city: "Lavaur",
     description:
-      "Création d'une douche italienne avec receveur extra-plat, carrelage grand format et niche murale éclairée.",
+      "Intervention d'urgence pour une fuite importante sur canalisation d'eau chaude dans un appartement. Réparation définitive en 2 heures.",
     beforePrompt:
-      "Salle de bain avec baignoire classique blanche, murs peints écaillés, sol vinyle usé, photo réaliste, ratio 4:3",
+      "Fuite d'eau importante sur tuyau cuivre sous évier, gouttes d'eau, sol mouillé, urgence, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Douche italienne ouverte, receveur extra-plat, carrelage grand format gris clair, pommeau pluie chromé, niche murale éclairée, photo réaliste, ratio 4:3",
+      "Tuyauterie cuivre neuve sous évier, raccords neufs chromés, sol sec, réparation propre et soignée, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
-    id: "plancher-chauffant-ecully",
+    id: "clim-multi-split-graulhet",
+    title: "Climatisation multi-split",
+    category: "Climatisation",
+    city: "Graulhet",
+    description:
+      "Installation d'un système multi-split pour climatiser 3 pièces depuis une seule unité extérieure.",
+    beforePrompt:
+      "Salon et chambres sans climatisation, pièces chaudes en été, fenêtres ouvertes, photo réaliste, ratio 4:3",
+    afterPrompt:
+      "Unité extérieure climatisation compacte sur terrasse, 3 unités intérieures murales blanches discrètes, câblage soigné, photo réaliste, ratio 4:3",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "plancher-chauffant-albi",
     title: "Installation plancher chauffant",
     category: "Chauffage",
-    city: "Écully",
+    city: "Albi",
     description:
-      "Pose d'un plancher chauffant hydraulique dans une maison en rénovation complète.",
+      "Pose d'un plancher chauffant hydraulique dans une maison en rénovation. Confort thermique optimal et économies d'énergie.",
     beforePrompt:
-      "Sol brut en béton dans pièce en rénovation, gaines électriques apparentes, chantier en cours, photo réaliste, ratio 4:3",
+      "Sol brut en béton dans pièce en rénovation, gaines apparentes, chantier en cours, photo réaliste, ratio 4:3",
     afterPrompt:
       "Installation plancher chauffant en cours, tubes PER rouges en serpentin sur isolant argenté, vue plongée, chantier propre, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
-    id: "depannage-lyon2",
-    title: "Réparation fuite urgente",
+    id: "sdb-plomberie-rabastens",
+    title: "Plomberie salle de bain complète",
     category: "Plomberie",
-    city: "Lyon 2e",
+    city: "Rabastens",
     description:
-      "Intervention d'urgence pour une fuite sur canalisation d'eau chaude dans un appartement ancien.",
+      "Installation complète de la plomberie d'une salle de bain neuve : douche, vasque, WC suspendu, robinetterie.",
     beforePrompt:
-      "Fuite d'eau importante sur tuyau cuivre sous évier, gouttes d'eau, sol mouillé, urgence, photo réaliste, ratio 4:3",
+      "Salle de bain en chantier, murs bruts, tuyaux apparents non raccordés, sol en béton, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Tuyauterie cuivre neuve sous évier, raccords neufs chromés, sol sec, réparation propre, photo réaliste, ratio 4:3",
+      "Salle de bain neuve moderne, douche à l'italienne, vasque design, WC suspendu, robinetterie chromée, tout installé proprement, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
   {
-    id: "sdb-complete-oullins",
-    title: "Rénovation salle de bain luxe",
-    category: "Salle de bain",
-    city: "Oullins",
+    id: "entretien-chaudiere-valence",
+    title: "Entretien chaudière annuel",
+    category: "Maintenance",
+    city: "Valence-d'Albigeois",
     description:
-      "Rénovation haut de gamme avec double vasque, robinetterie laiton brossé et carrelage terrazzo.",
+      "Entretien annuel obligatoire d'une chaudière gaz avec nettoyage, contrôle combustion et remise de l'attestation.",
     beforePrompt:
-      "Salle de bain ancienne, carrelage blanc basique, lavabo sur colonne, baignoire jaunâtre, éclairage néon, photo réaliste, ratio 4:3",
+      "Technicien vérifiant chaudière gaz avec outillage professionnel, carnet d'entretien, photo réaliste, ratio 4:3",
     afterPrompt:
-      "Magnifique salle de bain rénovée style contemporain, grande douche italienne paroi vitrée, vasque pierre naturelle, robinetterie laiton brossé, carrelage terrazzo, plantes vertes, lumière naturelle, photo réaliste haut de gamme, ratio 4:3",
+      "Chaudière gaz propre après entretien, technicien remettant attestation au client, photo réaliste, ratio 4:3",
     aspectRatio: "4/3",
   },
 ];

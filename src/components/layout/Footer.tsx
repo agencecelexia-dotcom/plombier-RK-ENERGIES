@@ -219,7 +219,7 @@ export function Footer() {
             Zone d&apos;intervention
           </h3>
           <p className="text-sm text-neutral-500 mb-3">
-            Nous intervenons dans un rayon de 30 km autour de Lyon :
+            Nous intervenons dans tout le Tarn (81) et communes limitrophes :
           </p>
           <div className="flex flex-wrap gap-1.5">
             {communes.map((commune) => (

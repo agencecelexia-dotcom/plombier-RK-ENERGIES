@@ -43,7 +43,7 @@ export default function AdminLoginPage() {
             <Lock className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-2xl font-bold text-white mb-1">Administration</h1>
-          <p className="text-slate-400 text-sm">Durand Plomberie</p>
+          <p className="text-slate-400 text-sm">RK Energies</p>
         </div>
 
         <form

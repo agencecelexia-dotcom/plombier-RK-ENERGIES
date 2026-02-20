@@ -63,10 +63,10 @@ export default function AProposPage() {
                 Fondé en {siteConfig.foundedYear} par {siteConfig.founder}, {siteConfig.name} est né d&apos;une passion pour le métier et d&apos;une conviction simple : un plombier doit être fiable, réactif et transparent.
               </p>
               <p>
-                Après {siteConfig.yearsExperience} ans d&apos;expérience et plus de {siteConfig.interventionsCount} interventions, nous restons fidèles à ces valeurs. Notre équipe de techniciens qualifiés intervient chaque jour dans la métropole lyonnaise pour des dépannages, installations et rénovations.
+                Après {siteConfig.yearsExperience} ans d&apos;expérience et plus de {siteConfig.interventionsCount} interventions, Raphael reste fidèle à ces valeurs. Il intervient chaque jour dans tout le Tarn (81) pour des dépannages urgents, des installations de chauffage, de climatisation et des travaux de plomberie.
               </p>
               <p>
-                Certifiés RGE et couverts par une assurance décennale, nous accompagnons nos clients dans tous leurs projets de plomberie et de chauffage, du dépannage urgent à la rénovation complète.
+                Spécialisé en plomberie, chauffage et climatisation, Raphael Khelifi accompagne ses clients dans tous leurs projets énergétiques — du dépannage urgent à l&apos;installation d&apos;une pompe à chaleur ou d&apos;un système de climatisation réversible.
               </p>
             </div>
           </div>
@@ -83,14 +83,14 @@ export default function AProposPage() {
       {/* Équipe */}
       <SectionContainer variant="gray">
         <SectionHeading
-          title="Notre équipe"
-          subtitle="Des professionnels qualifiés et passionnés à votre service."
+          title="Raphael Khelifi — Fondateur RK Energies"
+          subtitle="Un artisan qualifié, à votre service pour tous vos projets plomberie, chauffage et climatisation dans le Tarn."
         />
         <ImagePlaceholder
-          prompt="Equipe de 2-3 plombiers en uniforme bleu propre devant camionnette utilitaire blanche avec logo, souriant, parking exterieur, lumiere naturelle, photo realiste, ratio 3:2"
+          prompt="Artisan plombier chauffagiste francais professionnel en uniforme, polo avec logo, devant camionnette utilitaire blanche, souriant, confiant, photo realiste exterieur, ratio 3:2"
           src={pageImages["a-propos-equipe"] || undefined}
           aspectRatio="3/2"
-          alt={`L'équipe ${siteConfig.name}`}
+          alt={`Raphael Khelifi, fondateur de ${siteConfig.name}`}
           className="max-w-3xl mx-auto"
         />
       </SectionContainer>
