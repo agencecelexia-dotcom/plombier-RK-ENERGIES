@@ -10,7 +10,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { realisations } from "@/config/realisations";
 import { heroImages } from "@/config/images";
 
-const categories = ["Tout", "Salle de bain", "Plomberie", "Chauffage", "Chauffe-eau"];
+const categories = ["Tout", "Plomberie", "Climatisation", "Chauffage", "Chauffe-eau", "Maintenance"];
 
 export default function RealisationsClient() {
   const [activeCategory, setActiveCategory] = useState("Tout");

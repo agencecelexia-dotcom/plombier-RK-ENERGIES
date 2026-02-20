@@ -82,27 +82,38 @@ export const pageImages: Record<string, string> = {
 };
 
 // ============================================================
-// Realisations avant/apres (20 emplacements → 14 images uniques)
+// Realisations avant/apres — RK Energies (Tarn)
+// Mapping des 10 réalisations × 2 (avant/après) = 20 entrées
 // ============================================================
 export const realisationImages: Record<string, string> = {
-  "sdb-villeurbanne-before":        "/images/realisations/sdb-villeurbanne-before.jpeg",
-  "sdb-villeurbanne-after":         "/images/realisations/sdb-villeurbanne-after.png",
-  "cuisine-lyon3-before":           "/images/realisations/cuisine-lyon3-before.png",
-  "cuisine-lyon3-after":            "/images/realisations/cuisine-lyon3-after.jpeg",
-  "chauffe-eau-caluire-before":     "/images/realisations/chauffe-eau-caluire-before.png",
-  "chauffe-eau-caluire-after":      "/images/realisations/chauffe-eau-caluire-after.png",
-  "pac-bron-before":                "/images/realisations/pac-bron-before.jpeg",
-  "pac-bron-after":                 "/images/realisations/pac-bron-after.png",
-  "sdb-pmr-lyon6-before":           "/images/realisations/sdb-pmr-lyon6-before.jpeg",
-  "sdb-pmr-lyon6-after":            IMG_SDB_PMR,
-  "chaudiere-tassin-before":        "/images/realisations/chaudiere-tassin-before.png",
-  "chaudiere-tassin-after":         IMG_CHAUDIERE_GAZ,
-  "douche-lyon7-before":            "/images/realisations/douche-lyon7-before.png",
-  "douche-lyon7-after":             IMG_DOUCHE_ITALIENNE,
-  "plancher-chauffant-ecully-before": "/images/realisations/plancher-chauffant-ecully-before.png",
-  "plancher-chauffant-ecully-after":  IMG_PLANCHER_CHAUFFANT,
-  "depannage-lyon2-before":         IMG_FUITE_EAU,
-  "depannage-lyon2-after":          "/images/realisations/depannage-lyon2-after.png",
-  "sdb-complete-oullins-before":    "/images/realisations/sdb-complete-oullins-before.png",
-  "sdb-complete-oullins-after":     IMG_RENOVATION_SDB,
+  // Climatisation réversible — Albi
+  "clim-reversible-albi-before":       "/images/heroes/chauffage.jpeg",
+  "clim-reversible-albi-after":        "/images/pages/chauffage-pac.jpeg",
+  // PAC air-eau — Albi
+  "pac-albi-before":                   "/images/realisations/pac-bron-before.jpeg",
+  "pac-albi-after":                    "/images/realisations/pac-bron-after.png",
+  // Plomberie complète — Gaillac
+  "plomberie-gaillac-before":          "/images/realisations/cuisine-lyon3-before.png",
+  "plomberie-gaillac-after":           "/images/realisations/cuisine-lyon3-after.jpeg",
+  // Chauffe-eau thermodynamique — Carmaux
+  "chauffe-eau-carmaux-before":        "/images/realisations/chauffe-eau-caluire-before.png",
+  "chauffe-eau-carmaux-after":         "/images/realisations/chauffe-eau-caluire-after.png",
+  // Chaudière gaz condensation — Castres
+  "chaudiere-gaz-castres-before":      "/images/realisations/chaudiere-tassin-before.png",
+  "chaudiere-gaz-castres-after":       IMG_CHAUDIERE_GAZ,
+  // Dépannage fuite urgente — Lavaur
+  "depannage-fuite-lavaur-before":     IMG_FUITE_EAU,
+  "depannage-fuite-lavaur-after":      "/images/realisations/depannage-lyon2-after.png",
+  // Climatisation multi-split — Graulhet
+  "clim-multi-split-graulhet-before":  IMG_RENOVATION_SDB,
+  "clim-multi-split-graulhet-after":   "/images/pages/chauffage-pac.jpeg",
+  // Plancher chauffant — Albi
+  "plancher-chauffant-albi-before":    "/images/realisations/plancher-chauffant-ecully-before.png",
+  "plancher-chauffant-albi-after":     IMG_PLANCHER_CHAUFFANT,
+  // Plomberie salle de bain — Rabastens
+  "sdb-plomberie-rabastens-before":    "/images/pages/plomberie-mise-aux-normes.jpeg",
+  "sdb-plomberie-rabastens-after":     "/images/pages/plomberie-robinetterie.jpeg",
+  // Entretien chaudière — Valence-d'Albigeois
+  "entretien-chaudiere-valence-before": "/images/realisations/chaudiere-tassin-before.png",
+  "entretien-chaudiere-valence-after":  IMG_CHAUDIERE_GAZ,
 };
