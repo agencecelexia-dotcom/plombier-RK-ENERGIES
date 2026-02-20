@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { Siren, Wrench, Bath, Flame, Droplets, ClipboardCheck } from "lucide-react";
+import { Siren, Wrench, Wind, Flame, Droplets, ClipboardCheck } from "lucide-react";
 import type { Service } from "@/types";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Siren,
   Wrench,
-  Bath,
+  Wind,
   Flame,
   Droplets,
   ClipboardCheck,
