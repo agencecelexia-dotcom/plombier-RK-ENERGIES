@@ -254,6 +254,13 @@ export function Footer() {
               >
                 Politique de confidentialit&eacute;
               </Link>
+              <span className="text-neutral-700">|</span>
+              <Link
+                href="/admin"
+                className="hover:text-accent-400 transition-colors duration-200"
+              >
+                Admin
+              </Link>
             </div>
           </div>
         </div>
