@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Droplets, Zap, Leaf, Wrench, CheckCircle } from "lucide-react";
+import { Droplets, Zap, Leaf, Wrench } from "lucide-react";
 import { generatePageMetadata } from "@/lib/metadata";
 import { ServicePageLayout } from "@/components/sections/ServicePageLayout";
 import { SectionContainer } from "@/components/sections/SectionContainer";
 import { SectionHeading } from "@/components/sections/SectionHeading";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { faqChauffeEau } from "@/config/faq";
 import { heroImages } from "@/config/images";
@@ -58,7 +56,7 @@ export default function ChauffeEauPage() {
           title="Nos services chauffe-eau"
           subtitle="Installation, remplacement, entretien et dépannage de tous types de chauffe-eau."
         />
-        <div className="grid sm:grid-cols-2 gap-6 stagger-children" data-animate="fade-up">
+        <div className="grid sm:grid-cols-2 gap-6">
           {servicesChauffeEau.map((s) => (
             <Card key={s.title}>
               <CardContent className="p-6 flex gap-4">
@@ -66,7 +64,7 @@ export default function ChauffeEauPage() {
                   <s.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-normal text-foreground mb-1">{s.title}</h3>
+                  <h3 className="font-bold text-neutral-900 mb-1">{s.title}</h3>
                   <p className="text-sm text-muted-foreground">{s.desc}</p>
                 </div>
               </CardContent>
@@ -76,7 +74,7 @@ export default function ChauffeEauPage() {
       </SectionContainer>
 
       {/* Comparatif */}
-      <SectionContainer variant="warm">
+      <SectionContainer variant="gray">
         <SectionHeading
           title="Électrique vs Thermodynamique"
           subtitle="Comparez les deux technologies pour faire le bon choix."
@@ -92,7 +90,7 @@ export default function ChauffeEauPage() {
               <div key={row.critere} className={`grid grid-cols-3 text-sm ${i % 2 === 0 ? "bg-muted/30" : ""}`}>
                 <div className="p-4 font-medium">{row.critere}</div>
                 <div className="p-4 text-center text-muted-foreground">{row.electrique}</div>
-                <div className="p-4 text-center font-medium text-brand-green">{row.thermo}</div>
+                <div className="p-4 text-center font-medium text-accent-500">{row.thermo}</div>
               </div>
             ))}
           </div>
@@ -100,11 +98,11 @@ export default function ChauffeEauPage() {
       </SectionContainer>
 
       {/* Services liés */}
-      <SectionContainer>
+      <SectionContainer variant="white">
         <SectionHeading title="Services liés" />
         <div className="flex flex-wrap justify-center gap-4">
-          <Button asChild variant="outline"><Link href="/chauffage">Chauffage</Link></Button>
-          <Button asChild variant="outline"><Link href="/depannage-plomberie">Dépannage plomberie</Link></Button>
+          <Link href="/chauffage" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Chauffage</Link>
+          <Link href="/depannage-plomberie" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Dépannage plomberie</Link>
         </div>
       </SectionContainer>
     </ServicePageLayout>

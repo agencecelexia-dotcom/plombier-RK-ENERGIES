@@ -1,26 +1,24 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, DM_Sans } from "next/font/google";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { MobileCallCTA } from "@/components/layout/MobileCallCTA";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 import { SchemaOrg } from "@/components/seo/SchemaOrg";
 import { AnalyticsTracker } from "@/components/features/AnalyticsTracker";
-import { ScrollRevealProvider } from "@/components/features/ScrollRevealProvider";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
-const dmSerif = DM_Serif_Display({
-  variable: "--font-dm-serif",
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: "400",
   display: "swap",
+  variable: "--font-playfair",
 });
 
 const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
+  variable: "--font-dmsans",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -45,10 +43,10 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${dmSerif.variable} ${dmSans.variable} antialiased`}
+        className={`${playfair.variable} ${dmSans.variable} antialiased`}
       >
         <SchemaOrg />
-        <ScrollRevealProvider />
+        <ScrollProgress />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg"
@@ -58,7 +56,6 @@ export default function RootLayout({
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
-        <MobileCallCTA />
         <AnalyticsTracker />
       </body>
     </html>

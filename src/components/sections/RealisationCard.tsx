@@ -1,5 +1,4 @@
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { realisationImages } from "@/config/images";
 import type { Realisation } from "@/types";
@@ -10,51 +9,51 @@ interface RealisationCardProps {
 
 export function RealisationCard({ realisation }: RealisationCardProps) {
   return (
-    <Card className="overflow-hidden" data-animate="scale-up">
+    <div className="group rounded-2xl overflow-hidden border border-neutral-200 bg-card">
       <div className="grid grid-cols-2">
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <div className="absolute top-2 left-2 z-10">
-            <Badge variant="warm" className="text-xs">
+            <span className="inline-block text-xs px-2 py-0.5 rounded bg-neutral-800/70 text-white backdrop-blur-sm">
               Avant
-            </Badge>
+            </span>
           </div>
           <ImagePlaceholder
             prompt={realisation.beforePrompt}
             src={realisationImages[`${realisation.id}-before`] || undefined}
             aspectRatio={realisation.aspectRatio}
             alt={`${realisation.title} — avant`}
-            className="rounded-none h-full"
+            className="rounded-none h-full transition-transform duration-700 group-hover:scale-105"
           />
         </div>
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <div className="absolute top-2 left-2 z-10">
-            <Badge variant="success" className="text-xs">
-              Après
-            </Badge>
+            <span className="inline-block text-xs px-2 py-0.5 rounded bg-accent-500/80 text-white backdrop-blur-sm">
+              Apres
+            </span>
           </div>
           <ImagePlaceholder
             prompt={realisation.afterPrompt}
             src={realisationImages[`${realisation.id}-after`] || undefined}
             aspectRatio={realisation.aspectRatio}
-            alt={`${realisation.title} — après`}
-            className="rounded-none h-full"
+            alt={`${realisation.title} — apres`}
+            className="rounded-none h-full transition-transform duration-700 group-hover:scale-105"
           />
         </div>
       </div>
-      <CardContent className="p-4">
+      <div className="p-4">
         <div className="flex items-center gap-2 mb-1">
           <Badge variant="outline" className="text-xs">
             {realisation.category}
           </Badge>
-          <span className="text-xs text-muted-foreground">
+          <span className="text-xs text-neutral-500">
             {realisation.city}
           </span>
         </div>
-        <h3 className="font-semibold text-sm text-foreground">{realisation.title}</h3>
-        <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+        <h3 className="font-semibold text-sm text-neutral-900">{realisation.title}</h3>
+        <p className="text-xs text-neutral-600 mt-1 line-clamp-2">
           {realisation.description}
         </p>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

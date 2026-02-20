@@ -24,9 +24,9 @@ export default function MentionsLegalesPage() {
 
       <SectionContainer>
         <div className="max-w-3xl mx-auto prose prose-sm prose-slate">
-          <h1 className="text-3xl font-normal text-foreground mb-8">Mentions légales</h1>
+          <h1 className="text-3xl font-heading font-bold text-neutral-900 mb-8">Mentions légales</h1>
 
-          <h2 className="text-xl font-normal text-foreground mt-8 mb-4">1. Éditeur du site</h2>
+          <h2 className="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">1. Éditeur du site</h2>
           <p>
             Le site <strong>{siteConfig.url}</strong> est édité par :
           </p>
@@ -39,17 +39,17 @@ export default function MentionsLegalesPage() {
             <li><strong>Directeur de la publication :</strong> {siteConfig.founder}</li>
           </ul>
 
-          <h2 className="text-xl font-normal text-foreground mt-8 mb-4">2. Hébergeur</h2>
+          <h2 className="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">2. Hébergeur</h2>
           <p>
             Ce site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA.
           </p>
 
-          <h2 className="text-xl font-normal text-foreground mt-8 mb-4">3. Propriété intellectuelle</h2>
+          <h2 className="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">3. Propriété intellectuelle</h2>
           <p>
             L&apos;ensemble des contenus (textes, images, graphismes, logo, icônes) de ce site sont la propriété exclusive de {siteConfig.legalName}, sauf mention contraire. Toute reproduction, même partielle, est interdite sans autorisation préalable.
           </p>
 
-          <h2 className="text-xl font-normal text-foreground mt-8 mb-4">4. Protection des données personnelles (RGPD)</h2>
+          <h2 className="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">4. Protection des données personnelles (RGPD)</h2>
           <p>
             Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d&apos;un droit d&apos;accès, de rectification, de suppression et de portabilité de vos données personnelles.
           </p>
@@ -65,12 +65,12 @@ export default function MentionsLegalesPage() {
             Pour exercer vos droits, adressez-vous à : <a href={`mailto:${siteConfig.email}`} className="text-primary hover:underline">{siteConfig.email}</a>
           </p>
 
-          <h2 className="text-xl font-normal text-foreground mt-8 mb-4">5. Cookies</h2>
+          <h2 className="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">5. Cookies</h2>
           <p>
             Ce site utilise des cookies strictement nécessaires à son fonctionnement. Aucun cookie de tracking ou publicitaire n&apos;est utilisé. Des cookies d&apos;analyse anonyme (Google Analytics) peuvent être mis en place avec votre consentement.
           </p>
 
-          <h2 className="text-xl font-normal text-foreground mt-8 mb-4">6. Crédits</h2>
+          <h2 className="text-xl font-heading font-bold text-neutral-900 mt-8 mb-4">6. Crédits</h2>
           <p>
             Site conçu et développé par <strong>Agence Celexia</strong>.
           </p>

@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
-import { Phone, FileText } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Phone } from "lucide-react";
+import FadeUp from "@/components/animations/FadeUp";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { siteConfig } from "@/config/site";
+import { sectionImages } from "@/config/images";
 
 interface CTASectionProps {
   title?: string;
@@ -15,49 +19,53 @@ export function CTASection({
   variant = "devis",
 }: CTASectionProps) {
   return (
-    <section className="relative py-16 md:py-20 bg-surface-dark overflow-hidden">
-      {/* Decorative shapes */}
-      <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-white/[0.02] -translate-y-1/3 translate-x-1/3" aria-hidden="true" />
-      <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-accent-warm/[0.05] translate-y-1/3 -translate-x-1/3" aria-hidden="true" />
-      <div className="absolute top-1/2 left-1/4 w-32 h-32 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '16px 16px' }} aria-hidden="true" />
+    <section className="relative py-20 md:py-28 overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <ImagePlaceholder
+          prompt="Plombier professionnel au travail, ambiance professionnelle, photo réaliste"
+          src={sectionImages["cta-bandeau"] || undefined}
+          aspectRatio="21/9"
+          alt="Contactez-nous"
+          overlay
+          className="w-full h-full rounded-none"
+        />
+      </div>
+      <div className="absolute inset-0 bg-primary-900/85 z-10" />
 
-      <div className="relative z-20 container mx-auto px-4 lg:px-8 max-w-7xl text-center">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading text-white">
-          {title}
-        </h2>
-        {subtitle && (
-          <p className="mt-3 text-lg text-white/80 max-w-xl mx-auto">
-            {subtitle}
-          </p>
-        )}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          {(variant === "urgent" || variant === "devis") && (
-            <Button
-              asChild
-              size="lg"
-              variant="cta"
-              className="text-base px-8 py-6 btn-pulse"
-            >
-              <a href={siteConfig.phoneHref} data-track="cta-appel-bandeau">
-                <Phone className="w-5 h-5 mr-2" />
-                Appelez maintenant — {siteConfig.phone}
-              </a>
-            </Button>
+      {/* Content */}
+      <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <FadeUp>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-white">
+            {title}
+          </h2>
+          {subtitle && (
+            <p className="mt-4 text-lg text-neutral-300 max-w-xl mx-auto">
+              {subtitle}
+            </p>
           )}
-          {(variant === "devis" || variant === "contact") && (
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white/10 text-base px-8 py-6"
-            >
-              <Link href="/contact" data-track="cta-devis-bandeau">
-                <FileText className="w-5 h-5 mr-2" />
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            {(variant === "urgent" || variant === "devis") && (
+              <a
+                href={siteConfig.phoneHref}
+                data-track="cta-appel-bandeau"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-primary-900 transition-colors hover:bg-accent-400"
+              >
+                <Phone className="h-5 w-5" />
+                Appelez maintenant &mdash; {siteConfig.phone}
+              </a>
+            )}
+            {(variant === "devis" || variant === "contact") && (
+              <Link
+                href="/contact"
+                data-track="cta-devis-bandeau"
+                className="inline-flex items-center justify-center rounded-lg border border-white/40 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
+              >
                 Demander un devis gratuit
               </Link>
-            </Button>
-          )}
-        </div>
+            )}
+          </div>
+        </FadeUp>
       </div>
     </section>
   );

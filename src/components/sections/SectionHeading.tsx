@@ -1,53 +1,61 @@
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
-  badge?: string;
   title: string;
   subtitle?: string;
+  centered?: boolean;
+  /** @deprecated Use `centered={false}` instead */
   align?: "left" | "center";
-  className?: string;
+  light?: boolean;
+  /** @deprecated Use `light` instead */
   dark?: boolean;
+  className?: string;
 }
 
 export function SectionHeading({
-  badge,
   title,
   subtitle,
-  align = "center",
-  className,
+  centered = true,
+  align,
+  light,
   dark,
+  className,
 }: SectionHeadingProps) {
+  // Support legacy `align` prop
+  const isCentered = align ? align === "center" : centered;
+  // Support both `light` and legacy `dark` prop
+  const isLight = light ?? dark ?? false;
+
   return (
     <div
-      data-animate="fade-up"
       className={cn(
         "mb-10 md:mb-14",
-        align === "center" && "text-center",
+        isCentered && "text-center",
         className
       )}
     >
-      {badge && (
-        <Badge variant={dark ? "warm" : "secondary"} className="mb-3">
-          {badge}
-        </Badge>
-      )}
-      <h2 className={cn(
-        "text-2xl md:text-3xl lg:text-4xl",
-        dark ? "text-white" : "text-foreground"
-      )}>
+      <h2
+        className={cn(
+          "font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight",
+          isLight ? "text-white" : "text-neutral-900"
+        )}
+      >
         {title}
       </h2>
-      <div className={cn(
-        "mt-4 w-16 h-1 rounded-full bg-accent-warm",
-        align === "center" && "mx-auto"
-      )} />
+      <div
+        className={cn(
+          "mt-4 h-1 w-16 rounded-full bg-accent-500",
+          isCentered && "mx-auto"
+        )}
+      />
       {subtitle && (
-        <p className={cn(
-          "mt-3 max-w-2xl text-base md:text-lg",
-          dark ? "text-white/70" : "text-muted-foreground",
-          align === "center" && "mx-auto"
-        )}>
+        <p
+          className={cn(
+            "mt-4 max-w-2xl text-lg",
+            isLight ? "text-neutral-200" : "text-neutral-600",
+            isCentered && "mx-auto"
+          )}
+        >
           {subtitle}
         </p>
       )}

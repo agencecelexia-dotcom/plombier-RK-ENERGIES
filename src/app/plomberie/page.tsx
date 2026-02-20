@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Wrench, Search, Pipette, ShieldCheck, Sparkles, CheckCircle } from "lucide-react";
+import { Wrench, Search, Pipette, ShieldCheck, CheckCircle } from "lucide-react";
 import { generatePageMetadata } from "@/lib/metadata";
 import { ServicePageLayout } from "@/components/sections/ServicePageLayout";
 import { SectionContainer } from "@/components/sections/SectionContainer";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { faqPlomberie } from "@/config/faq";
 import { heroImages, pageImages } from "@/config/images";
@@ -58,15 +56,15 @@ export default function PlomberiePage() {
           title="Nos services de plomberie"
           subtitle="De l'installation neuve à la réparation, nous intervenons sur tous vos équipements."
         />
-        <div className="space-y-12" data-animate="fade-up">
+        <div className="space-y-12">
           {servicesPlomberie.map((s, i) => (
-            <div key={s.title} className={`grid lg:grid-cols-2 gap-8 items-center ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`} data-animate={i % 2 === 0 ? "slide-left" : "slide-right"}>
+            <div key={s.title} className={`grid lg:grid-cols-2 gap-8 items-center`}>
               <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                     <s.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="text-xl font-normal text-foreground">{s.title}</h3>
+                  <h3 className="text-xl font-bold text-neutral-900">{s.title}</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
@@ -79,13 +77,13 @@ export default function PlomberiePage() {
       </SectionContainer>
 
       {/* Pourquoi nous choisir */}
-      <SectionContainer variant="warm">
+      <SectionContainer variant="gray">
         <SectionHeading title="Pourquoi nous choisir ?" />
         <div className="max-w-2xl mx-auto">
           <div className="grid sm:grid-cols-2 gap-4">
             {avantages.map((a) => (
               <div key={a} className="flex items-center gap-3">
-                <CheckCircle className="w-5 h-5 text-brand-green shrink-0" />
+                <CheckCircle className="w-5 h-5 text-accent-500 shrink-0" />
                 <span className="text-sm font-medium">{a}</span>
               </div>
             ))}
@@ -94,11 +92,11 @@ export default function PlomberiePage() {
       </SectionContainer>
 
       {/* Services liés */}
-      <SectionContainer>
+      <SectionContainer variant="white">
         <SectionHeading title="Services liés" />
         <div className="flex flex-wrap justify-center gap-4">
-          <Button asChild variant="outline"><Link href="/depannage-plomberie">Dépannage plomberie</Link></Button>
-          <Button asChild variant="outline"><Link href="/renovation-salle-de-bain">Rénovation salle de bain</Link></Button>
+          <Link href="/depannage-plomberie" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Dépannage plomberie</Link>
+          <Link href="/renovation-salle-de-bain" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Rénovation salle de bain</Link>
         </div>
       </SectionContainer>
     </ServicePageLayout>

@@ -5,7 +5,6 @@ import { generatePageMetadata } from "@/lib/metadata";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionContainer } from "@/components/sections/SectionContainer";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { heroImages } from "@/config/images";
 
@@ -44,18 +43,19 @@ export default function BlogPage() {
       <SectionContainer>
         <div className="max-w-lg mx-auto text-center py-12">
           <BookOpen className="w-16 h-16 text-primary/20 mx-auto mb-6" />
-          <h2 className="text-2xl font-normal text-foreground mb-4">
+          <h2 className="text-2xl font-heading font-bold text-neutral-900 mb-4">
             Bientôt disponible
           </h2>
           <p className="text-muted-foreground mb-8 leading-relaxed">
             Nous préparons des articles sur l&apos;entretien de votre plomberie, les économies d&apos;énergie, les aides pour la rénovation... Revenez bientôt !
           </p>
-          <Button asChild variant="outline">
-            <Link href="/">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Retour à l&apos;accueil
-            </Link>
-          </Button>
+          <Link
+            href="/"
+            className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all inline-flex items-center gap-2"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Retour à l&apos;accueil
+          </Link>
         </div>
       </SectionContainer>
     </>

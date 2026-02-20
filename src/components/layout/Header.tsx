@@ -3,11 +3,11 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Phone, Menu, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { mainNavItems } from "@/config/navigation";
+import Logo from "./Logo";
 import { MobileNav } from "./MobileNav";
 
 export function Header() {
@@ -15,10 +15,12 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const pathname = usePathname();
+  const isHomepage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -42,40 +44,29 @@ export function Header() {
     return pathname.startsWith(href);
   };
 
+  // Transparent on homepage when not scrolled; solid otherwise
+  const isTransparent = isHomepage && !scrolled;
+
   return (
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-300",
-          scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-md"
-            : "bg-white"
+          "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500",
+          isTransparent
+            ? "bg-transparent"
+            : "bg-white/95 backdrop-blur-sm shadow-[var(--shadow-header)]"
         )}
       >
         <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <Link
-              href="/"
-              className="flex items-center gap-2 shrink-0"
-              aria-label="Retour à l'accueil — Durand Plomberie"
-            >
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-primary-foreground" aria-hidden="true">
-                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M10 13.5a4 4 0 0 0 0-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
-                </svg>
-              </div>
-              <div className="hidden sm:flex flex-col">
-                <span className="font-heading text-lg font-normal text-foreground">
-                  {siteConfig.name}
-                </span>
-                <span className="text-xs text-muted-foreground">Plombier à Lyon</span>
-              </div>
-            </Link>
+            <Logo light={isTransparent} />
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1" aria-label="Navigation principale">
+            <nav
+              className="hidden lg:flex items-center gap-1"
+              aria-label="Navigation principale"
+            >
               {mainNavItems.map((item) =>
                 item.children ? (
                   <div
@@ -85,7 +76,12 @@ export function Header() {
                     onMouseLeave={() => setServicesOpen(false)}
                   >
                     <button
-                      className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors rounded-md"
+                      className={cn(
+                        "group relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors",
+                        isTransparent
+                          ? "text-white/90 hover:text-white"
+                          : "text-neutral-600 hover:text-primary-900"
+                      )}
                       aria-expanded={servicesOpen}
                       aria-haspopup="true"
                       aria-controls="services-submenu"
@@ -93,40 +89,85 @@ export function Header() {
                       onKeyDown={handleServicesKeyDown}
                     >
                       {item.label}
-                      <ChevronDown className={cn("w-4 h-4 transition-transform", servicesOpen && "rotate-180")} />
-                    </button>
-                    {servicesOpen && (
-                      <div
-                        id="services-submenu"
-                        role="menu"
-                        className="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-lg border py-2 backdrop-blur-sm animate-in fade-in slide-in-from-top-2 duration-200"
+                      <svg
+                        className={cn(
+                          "w-4 h-4 transition-transform duration-200",
+                          servicesOpen && "rotate-180"
+                        )}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
                       >
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            role="menuitem"
-                            className={cn(
-                              "block px-4 py-2.5 text-sm text-foreground/80 hover:bg-muted hover:text-primary transition-colors",
-                              isActive(child.href) && "text-primary font-semibold"
-                            )}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                      {/* Underline animation */}
+                      <span
+                        className={cn(
+                          "absolute bottom-0 left-3 right-3 h-0.5 rounded-full transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100",
+                          isTransparent ? "bg-accent-300" : "bg-accent-500"
+                        )}
+                      />
+                    </button>
+                    <AnimatePresence>
+                      {servicesOpen && (
+                        <motion.div
+                          id="services-submenu"
+                          role="menu"
+                          initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                          className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-neutral-100 py-2"
+                        >
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              role="menuitem"
+                              className={cn(
+                                "block px-4 py-2.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-primary-900 transition-colors",
+                                isActive(child.href) &&
+                                  "text-primary-900 font-semibold bg-neutral-50"
+                              )}
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 ) : (
                   <Link
                     key={item.href}
                     href={item.href!}
                     className={cn(
-                      "px-3 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors rounded-md",
-                      isActive(item.href!) && "text-primary font-semibold after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-6 after:h-0.5 after:bg-accent-warm after:rounded-full relative"
+                      "group relative px-3 py-2 text-sm font-medium transition-colors",
+                      isTransparent
+                        ? "text-white/90 hover:text-white"
+                        : "text-neutral-600 hover:text-primary-900",
+                      isActive(item.href!) &&
+                        (isTransparent
+                          ? "text-white"
+                          : "text-primary-900")
                     )}
                   >
                     {item.label}
+                    {/* Underline animation */}
+                    <span
+                      className={cn(
+                        "absolute bottom-0 left-3 right-3 h-0.5 rounded-full transition-transform duration-300 origin-left",
+                        isActive(item.href!)
+                          ? "scale-x-100"
+                          : "scale-x-0 group-hover:scale-x-100",
+                        isTransparent ? "bg-accent-300" : "bg-accent-500"
+                      )}
+                    />
                   </Link>
                 )
               )}
@@ -134,18 +175,56 @@ export function Header() {
 
             {/* CTA + Mobile Menu */}
             <div className="flex items-center gap-3">
-              <Button asChild variant="cta" className="hidden sm:flex">
-                <a href={siteConfig.phoneHref} data-track="header-appel">
-                  <Phone className="w-4 h-4 mr-2" />
-                  {siteConfig.phone}
-                </a>
-              </Button>
+              <a
+                href={siteConfig.phoneHref}
+                data-track="header-appel"
+                className={cn(
+                  "hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200",
+                  isTransparent
+                    ? "bg-accent-500 text-white hover:bg-accent-600"
+                    : "bg-accent-500 text-white hover:bg-accent-600 shadow-sm hover:shadow-md"
+                )}
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                {siteConfig.phone}
+              </a>
+
+              {/* Mobile hamburger */}
               <button
-                className="lg:hidden p-2 rounded-md hover:bg-muted transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                className={cn(
+                  "lg:hidden p-2 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2",
+                  isTransparent
+                    ? "text-white hover:bg-white/10"
+                    : "text-neutral-700 hover:bg-neutral-100"
+                )}
                 onClick={() => setMobileOpen(true)}
                 aria-label="Ouvrir le menu"
               >
-                <Menu className="w-6 h-6" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
               </button>
             </div>
           </div>

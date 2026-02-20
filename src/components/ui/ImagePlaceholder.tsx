@@ -43,7 +43,7 @@ export function ImagePlaceholder({
       {...(!hasImage ? { role: "img", "aria-label": alt } : {})}
       className={cn(
         "relative overflow-hidden rounded-2xl",
-        !hasImage && "bg-gradient-to-br from-primary/15 via-surface-warm to-accent-warm/10",
+        !hasImage && "bg-gradient-to-br from-primary-100 via-neutral-50 to-accent-100",
         ratioClass,
         className
       )}
@@ -59,7 +59,7 @@ export function ImagePlaceholder({
         />
       )}
       {overlay && (
-        <div className="absolute inset-0 bg-gradient-to-t from-surface-dark/80 via-surface-dark/40 to-primary/20 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-primary-900/40 to-primary-900/20 z-10" />
       )}
       {!hasImage && (
         <div className="absolute inset-0 flex items-center justify-center p-4 z-0">

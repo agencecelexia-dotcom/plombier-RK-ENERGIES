@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Star, ExternalLink } from "lucide-react";
 import { generatePageMetadata } from "@/lib/metadata";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionContainer } from "@/components/sections/SectionContainer";
-import { SectionHeading } from "@/components/sections/SectionHeading";
 import { TestimonialCard } from "@/components/sections/TestimonialCard";
 import { CTASection } from "@/components/sections/CTASection";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { testimonials } from "@/config/testimonials";
 import { heroImages } from "@/config/images";
@@ -45,9 +42,9 @@ export default function AvisClientsPage() {
       {/* Note globale */}
       <SectionContainer>
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-6 bg-surface-warm rounded-2xl px-10 py-8">
+          <div className="inline-flex items-center gap-6 bg-primary-50 rounded-2xl px-10 py-8">
             <div>
-              <span className="text-6xl font-normal text-foreground">
+              <span className="text-6xl font-bold text-neutral-900">
                 {siteConfig.googleRating}
               </span>
               <span className="text-2xl text-muted-foreground">/5</span>
@@ -59,7 +56,7 @@ export default function AvisClientsPage() {
                     key={i}
                     className={`w-7 h-7 ${
                       i < Math.round(siteConfig.googleRating)
-                        ? "text-accent-warm fill-accent-warm"
+                        ? "text-accent-500 fill-accent-500"
                         : "text-gray-200"
                     }`}
                   />
@@ -73,7 +70,7 @@ export default function AvisClientsPage() {
         </div>
 
         {/* Liste des avis */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, i) => (
             <TestimonialCard key={i} testimonial={testimonial} />
           ))}
@@ -81,16 +78,15 @@ export default function AvisClientsPage() {
 
         {/* Lien Google */}
         <div className="mt-12 text-center space-y-4">
-          <Button asChild variant="outline" size="lg">
-            <a
-              href={siteConfig.social.google}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Voir tous les avis sur Google
-              <ExternalLink className="w-4 h-4 ml-2" />
-            </a>
-          </Button>
+          <a
+            href={siteConfig.social.google}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all inline-flex items-center gap-2"
+          >
+            Voir tous les avis sur Google
+            <ExternalLink className="w-4 h-4" />
+          </a>
         </div>
       </SectionContainer>
 

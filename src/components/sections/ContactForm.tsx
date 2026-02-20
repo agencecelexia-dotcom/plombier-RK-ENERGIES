@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -15,9 +14,9 @@ import {
 } from "@/components/ui/select";
 
 const serviceOptions = [
-  "Urgence / Dépannage",
-  "Plomberie générale",
-  "Rénovation salle de bain",
+  "Urgence / Depannage",
+  "Plomberie generale",
+  "Renovation salle de bain",
   "Chauffage",
   "Chauffe-eau",
   "Autre",
@@ -64,12 +63,12 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div role="status" aria-live="polite" className="rounded-xl border bg-brand-green/5 p-8 text-center">
-        <CheckCircle className="w-12 h-12 text-brand-green mx-auto mb-4" />
-        <h3 className="text-xl font-bold text-primary mb-2">
-          Demande envoyée !
+      <div role="status" aria-live="polite" className="rounded-xl border border-neutral-200 bg-neutral-50 p-8 text-center">
+        <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
+        <h3 className="text-xl font-bold text-neutral-900 mb-2">
+          Demande envoyee !
         </h3>
-        <p className="text-muted-foreground">
+        <p className="text-neutral-600">
           Nous vous recontactons sous 48h. Pour une urgence, appelez-nous directement.
         </p>
       </div>
@@ -81,7 +80,7 @@ export function ContactForm() {
       {error && (
         <div role="alert" className="flex items-center gap-2 p-3 rounded-lg bg-destructive/10 text-destructive text-sm">
           <AlertCircle className="w-4 h-4" />
-          Une erreur est survenue. Veuillez réessayer.
+          Une erreur est survenue. Veuillez reessayer.
         </div>
       )}
 
@@ -91,24 +90,24 @@ export function ContactForm() {
       <div className="grid sm:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="nom">Nom *</Label>
-          <Input id="nom" name="nom" required placeholder="Votre nom" />
+          <Input id="nom" name="nom" required placeholder="Votre nom" className="focus:ring-accent-500 focus:border-accent-500" />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="telephone">Téléphone *</Label>
-          <Input id="telephone" name="telephone" type="tel" required placeholder="06 XX XX XX XX" />
+          <Label htmlFor="telephone">Telephone *</Label>
+          <Input id="telephone" name="telephone" type="tel" required placeholder="06 XX XX XX XX" className="focus:ring-accent-500 focus:border-accent-500" />
         </div>
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="email">Email *</Label>
-        <Input id="email" name="email" type="email" required placeholder="votre@email.fr" />
+        <Input id="email" name="email" type="email" required placeholder="votre@email.fr" className="focus:ring-accent-500 focus:border-accent-500" />
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="service">Type de besoin</Label>
         <Select name="service">
           <SelectTrigger id="service">
-            <SelectValue placeholder="Sélectionnez un service" />
+            <SelectValue placeholder="Selectionnez un service" />
           </SelectTrigger>
           <SelectContent>
             {serviceOptions.map((opt) => (
@@ -125,8 +124,9 @@ export function ContactForm() {
         <Textarea
           id="message"
           name="message"
-          placeholder="Décrivez votre besoin..."
+          placeholder="Decrivez votre besoin..."
           rows={4}
+          className="focus:ring-accent-500 focus:border-accent-500"
         />
       </div>
 
@@ -136,17 +136,21 @@ export function ContactForm() {
           id="rgpd"
           name="rgpd"
           required
-          className="mt-1 w-4 h-4 accent-primary rounded border-input"
+          className="mt-1 w-4 h-4 accent-accent-500 rounded border-neutral-300"
         />
-        <Label htmlFor="rgpd" className="text-xs text-muted-foreground font-normal leading-relaxed">
-          J&apos;accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande. Voir notre politique de confidentialité.
+        <Label htmlFor="rgpd" className="text-xs text-neutral-500 font-normal leading-relaxed">
+          J&apos;accepte que mes donnees soient utilisees pour me recontacter dans le cadre de ma demande. Voir notre politique de confidentialite.
         </Label>
       </div>
 
-      <Button type="submit" variant="cta" size="lg" className="w-full" data-track="formulaire-contact-envoi" disabled={isSubmitting}>
-        <Send className="w-4 h-4 mr-2" />
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full h-12 bg-accent-500 text-white rounded-lg font-medium text-sm transition-all duration-200 hover:bg-accent-600 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none inline-flex items-center justify-center gap-2"
+      >
+        <Send className="w-4 h-4" />
         {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
-      </Button>
+      </button>
     </form>
   );
 }

@@ -57,7 +57,7 @@ export default function RealisationsClient() {
           </TabsList>
         </Tabs>
 
-        <div className="grid sm:grid-cols-2 gap-6 stagger-children">
+        <div className="grid sm:grid-cols-2 gap-6">
           {filtered.map((real) => (
             <RealisationCard key={real.id} realisation={real} />
           ))}

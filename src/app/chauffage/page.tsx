@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Flame, Wind, Heater, Thermometer, Wrench, ShieldCheck, CheckCircle } from "lucide-react";
+import { Flame, Wind, Heater, ShieldCheck, CheckCircle } from "lucide-react";
 import { generatePageMetadata } from "@/lib/metadata";
 import { ServicePageLayout } from "@/components/sections/ServicePageLayout";
 import { SectionContainer } from "@/components/sections/SectionContainer";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { faqChauffage } from "@/config/faq";
 import { heroImages, pageImages } from "@/config/images";
@@ -59,13 +57,13 @@ export default function ChauffagePage() {
           title="Nos solutions de chauffage"
           subtitle="Installation, remplacement et dépannage de tous types de systèmes de chauffage."
         />
-        <div className="space-y-12" data-animate="fade-up">
+        <div className="space-y-12">
           {servicesChauffage.map((s, i) => (
-            <div key={s.title} className={`grid lg:grid-cols-2 gap-8 items-center`} data-animate={i % 2 === 0 ? "slide-left" : "slide-right"}>
+            <div key={s.title} className="grid lg:grid-cols-2 gap-8 items-center">
               <div className={i % 2 === 1 ? "lg:order-2" : ""}>
                 <div className="flex items-center gap-3 mb-4">
                   <s.icon className="w-6 h-6 text-primary" />
-                  <h3 className="text-xl font-normal text-foreground">{s.title}</h3>
+                  <h3 className="text-xl font-bold text-neutral-900">{s.title}</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
@@ -78,9 +76,8 @@ export default function ChauffagePage() {
       </SectionContainer>
 
       {/* Entretien */}
-      <SectionContainer variant="warm" id="entretien">
+      <SectionContainer variant="gray" id="entretien">
         <SectionHeading
-          badge="Obligatoire"
           title="Entretien annuel chaudière"
           subtitle="L'entretien de votre chaudière est obligatoire chaque année. Nous intervenons sur toutes les marques."
         />
@@ -88,13 +85,13 @@ export default function ChauffagePage() {
           <Card>
             <CardContent className="p-8">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-normal text-foreground">Ce qui est inclus</h3>
-                <Badge className="bg-brand-green text-white">À partir de 89 EUR TTC</Badge>
+                <h3 className="text-lg font-bold text-neutral-900">Ce qui est inclus</h3>
+                <span className="px-3 py-1 bg-accent-500 text-white text-sm font-semibold rounded-full">À partir de 89 EUR TTC</span>
               </div>
               <div className="grid sm:grid-cols-2 gap-3">
                 {entretienInclus.map((item) => (
                   <div key={item} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-brand-green shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 text-accent-500 shrink-0 mt-0.5" />
                     <span className="text-sm">{item}</span>
                   </div>
                 ))}
@@ -105,10 +102,10 @@ export default function ChauffagePage() {
       </SectionContainer>
 
       {/* RGE */}
-      <SectionContainer>
+      <SectionContainer variant="white">
         <div className="max-w-3xl mx-auto text-center">
-          <ShieldCheck className="w-16 h-16 text-brand-green mx-auto mb-4" />
-          <h2 className="text-2xl md:text-3xl font-normal text-foreground mb-4">
+          <ShieldCheck className="w-16 h-16 text-accent-500 mx-auto mb-4" />
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-neutral-900 mb-4">
             Certifié RGE — Éligible aux aides de l&apos;État
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
@@ -121,11 +118,11 @@ export default function ChauffagePage() {
       </SectionContainer>
 
       {/* Services liés */}
-      <SectionContainer>
+      <SectionContainer variant="gray">
         <SectionHeading title="Services liés" />
         <div className="flex flex-wrap justify-center gap-4">
-          <Button asChild variant="outline"><Link href="/chauffe-eau">Chauffe-eau</Link></Button>
-          <Button asChild variant="outline"><Link href="/depannage-plomberie">Dépannage plomberie</Link></Button>
+          <Link href="/chauffe-eau" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Chauffe-eau</Link>
+          <Link href="/depannage-plomberie" className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all">Dépannage plomberie</Link>
         </div>
       </SectionContainer>
     </ServicePageLayout>

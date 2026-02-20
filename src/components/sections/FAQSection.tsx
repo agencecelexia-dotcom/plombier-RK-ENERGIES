@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -7,12 +9,13 @@ import {
 import { SectionContainer } from "./SectionContainer";
 import { SectionHeading } from "./SectionHeading";
 import { faqSchema } from "@/lib/schema";
+import FadeUp from "@/components/animations/FadeUp";
 import type { FAQ } from "@/types";
 
 interface FAQSectionProps {
   faqs: FAQ[];
   title?: string;
-  variant?: "white" | "gray" | "warm";
+  variant?: "white" | "gray";
 }
 
 export function FAQSection({
@@ -29,20 +32,22 @@ export function FAQSection({
         }}
       />
       <SectionHeading title={title} />
-      <div className="max-w-3xl mx-auto" data-animate="fade-up">
-        <Accordion type="single" collapsible className="w-full">
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`faq-${index}`} className="border-border/60">
-              <AccordionTrigger className="text-left text-base font-medium hover:text-accent-warm">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
+      <FadeUp>
+        <div className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`faq-${index}`} className="border-neutral-200">
+                <AccordionTrigger className="text-left text-base font-medium hover:text-accent-600">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-neutral-600 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </FadeUp>
     </SectionContainer>
   );
 }

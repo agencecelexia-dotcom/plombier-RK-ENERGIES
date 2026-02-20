@@ -12,7 +12,6 @@ import { RealisationCard } from "@/components/sections/RealisationCard";
 import { TestimonialCard } from "@/components/sections/TestimonialCard";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { services } from "@/config/services";
 import { realisations } from "@/config/realisations";
@@ -66,13 +65,12 @@ export default function HomePage() {
       <UrgencyProjectCards />
 
       {/* Services */}
-      <SectionContainer variant="warm" dots>
+      <SectionContainer variant="white">
         <SectionHeading
-          badge="Nos services"
           title="Des solutions pour tous vos besoins"
           subtitle="De l'urgence au projet de rénovation, notre équipe qualifiée intervient avec professionnalisme."
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}
@@ -80,33 +78,34 @@ export default function HomePage() {
       </SectionContainer>
 
       {/* Réalisations */}
-      <SectionContainer>
+      <SectionContainer variant="gray">
         <SectionHeading
-          badge="Avant / Après"
           title="Nos réalisations"
           subtitle="Découvrez nos derniers chantiers en images."
         />
-        <div className="grid sm:grid-cols-2 gap-6" data-animate="fade-up">
+        <div className="grid sm:grid-cols-2 gap-6">
           {featuredRealisations.map((real) => (
             <RealisationCard key={real.id} realisation={real} />
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Button asChild variant="outline" size="lg">
-            <Link href="/realisations">Voir toutes nos réalisations</Link>
-          </Button>
+          <Link
+            href="/realisations"
+            className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all inline-block"
+          >
+            Voir toutes nos réalisations
+          </Link>
         </div>
       </SectionContainer>
 
       {/* Avis */}
       <SectionContainer variant="white">
         <SectionHeading
-          badge="Avis clients"
           title="Ce que disent nos clients"
         />
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <span className="text-4xl font-normal text-foreground">
+            <span className="text-4xl font-bold text-neutral-900">
               {siteConfig.googleRating}
             </span>
             <span className="text-2xl text-muted-foreground">/5</span>
@@ -118,7 +117,7 @@ export default function HomePage() {
                 aria-hidden="true"
                 className={`w-6 h-6 ${
                   i < Math.round(siteConfig.googleRating)
-                    ? "text-accent-warm fill-accent-warm"
+                    ? "text-accent-500 fill-accent-500"
                     : "text-gray-200"
                 }`}
               />
@@ -128,15 +127,18 @@ export default function HomePage() {
             {siteConfig.googleReviewCount} avis Google
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-6 stagger-children">
+        <div className="grid md:grid-cols-3 gap-6">
           {featuredTestimonials.map((testimonial, i) => (
             <TestimonialCard key={i} testimonial={testimonial} />
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Button asChild variant="outline" size="lg">
-            <Link href="/avis-clients">Voir tous les avis</Link>
-          </Button>
+          <Link
+            href="/avis-clients"
+            className="px-8 py-4 border border-neutral-200 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-all inline-block"
+          >
+            Voir tous les avis
+          </Link>
         </div>
       </SectionContainer>
 

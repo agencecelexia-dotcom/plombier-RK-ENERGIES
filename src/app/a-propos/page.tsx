@@ -57,7 +57,7 @@ export default function AProposPage() {
       <SectionContainer>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionHeading title="Notre histoire" align="left" />
+            <SectionHeading title="Notre histoire" centered={false} />
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 Fondé en {siteConfig.foundedYear} par {siteConfig.founder}, {siteConfig.name} est né d&apos;une passion pour le métier et d&apos;une conviction simple : un plombier doit être fiable, réactif et transparent.
@@ -81,7 +81,7 @@ export default function AProposPage() {
       </SectionContainer>
 
       {/* Équipe */}
-      <SectionContainer variant="warm">
+      <SectionContainer variant="gray">
         <SectionHeading
           title="Notre équipe"
           subtitle="Des professionnels qualifiés et passionnés à votre service."
@@ -96,13 +96,13 @@ export default function AProposPage() {
       </SectionContainer>
 
       {/* Chiffres clés */}
-      <SectionContainer>
+      <SectionContainer variant="warm">
         <SectionHeading title="En quelques chiffres" />
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 stagger-children" data-animate="fade-up">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {chiffres.map((c) => (
             <div key={c.label} className="text-center">
               <c.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-              <div className="text-3xl md:text-4xl font-normal text-foreground mb-1">
+              <div className="text-3xl md:text-4xl font-bold text-neutral-900 mb-1">
                 {c.value}
               </div>
               <p className="text-sm text-muted-foreground">{c.label}</p>
@@ -112,14 +112,14 @@ export default function AProposPage() {
       </SectionContainer>
 
       {/* Valeurs */}
-      <SectionContainer variant="gray">
+      <SectionContainer variant="white">
         <SectionHeading title="Nos valeurs" />
         <div className="grid md:grid-cols-3 gap-8">
           {valeurs.map((v) => (
             <Card key={v.title}>
               <CardContent className="p-6 text-center">
                 <v.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-normal text-foreground mb-2">{v.title}</h3>
+                <h3 className="text-lg font-bold text-neutral-900 mb-2">{v.title}</h3>
                 <p className="text-sm text-muted-foreground">{v.desc}</p>
               </CardContent>
             </Card>
@@ -128,19 +128,19 @@ export default function AProposPage() {
       </SectionContainer>
 
       {/* Certifications */}
-      <SectionContainer>
+      <SectionContainer variant="gray">
         <SectionHeading
           title="Certifications et assurances"
           subtitle="Votre tranquillité d'esprit est notre priorité."
         />
-        <div className="max-w-2xl mx-auto space-y-4" data-animate="fade-up">
+        <div className="max-w-2xl mx-auto space-y-4">
           {[
             { label: "Certification RGE QualiPAC", detail: siteConfig.rge },
             { label: "Assurance décennale", detail: siteConfig.assuranceDecennale },
             { label: "SIRET", detail: siteConfig.siret },
           ].map((cert) => (
-            <div key={cert.label} className="flex items-center gap-3 p-4 rounded-lg bg-muted">
-              <CheckCircle className="w-5 h-5 text-brand-green shrink-0" />
+            <div key={cert.label} className="flex items-center gap-3 p-4 rounded-lg bg-white">
+              <CheckCircle className="w-5 h-5 text-accent-500 shrink-0" />
               <div>
                 <span className="font-medium text-sm">{cert.label}</span>
                 <span className="text-sm text-muted-foreground ml-2">{cert.detail}</span>

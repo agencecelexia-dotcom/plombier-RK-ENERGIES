@@ -1,7 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
+import SplitText from "@/components/animations/SplitText";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -31,7 +33,8 @@ export function HeroSection({
 }: HeroSectionProps) {
   if (variant === "home") {
     return (
-      <section className="relative min-h-[85vh] flex items-center">
+      <section className="relative min-h-screen flex flex-col">
+        {/* Background image */}
         <div className="absolute inset-0">
           <ImagePlaceholder
             prompt={imagePlaceholder.prompt}
@@ -44,62 +47,108 @@ export function HeroSection({
             sizes="100vw"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-surface-dark/95 via-primary/70 to-primary/30 z-10" />
-        <div className="relative z-20 container mx-auto px-4 lg:px-8 max-w-7xl py-20">
-          <div className="max-w-2xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-white leading-tight">
-              {title}
-            </h1>
-            {subtitle && (
-              <p className="mt-4 md:mt-6 text-lg md:text-xl text-white/90 leading-relaxed">
-                {subtitle}
-              </p>
-            )}
-            {badges && (
-              <div className="mt-6 flex flex-wrap gap-2">
-                {badges.map((badge) => (
-                  <Badge
-                    key={badge}
-                    variant="warm"
-                    className="bg-white/15 text-white border-white/20 backdrop-blur-sm text-sm"
-                  >
-                    {badge}
-                  </Badge>
-                ))}
-              </div>
-            )}
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              {ctaPrimary && (
-                <Button
-                  asChild
-                  size="lg"
-                  variant="cta"
-                  className="text-base px-8 py-6 btn-pulse"
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 to-black/80 z-10" />
+
+        {/* Main content */}
+        <div className="relative z-20 flex-1 flex items-center">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full py-20">
+            <div className="max-w-3xl">
+              {/* Eyebrow */}
+              <motion.span
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="inline-block text-xs font-semibold tracking-[0.3em] uppercase text-accent-400 mb-6"
+              >
+                Plombier chauffagiste &mdash; {siteConfig.address.city}
+              </motion.span>
+
+              {/* Title with word-by-word animation */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-[1.1] tracking-tight">
+                <SplitText delay={0.2}>{title}</SplitText>
+              </h1>
+
+              {/* Subtitle */}
+              {subtitle && (
+                <motion.p
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  className="mt-6 text-lg md:text-xl text-neutral-300 leading-relaxed max-w-2xl"
                 >
-                  <a href={ctaPrimary.href} data-track="hero-appel">
-                    <Phone className="w-5 h-5 mr-2" />
+                  {subtitle}
+                </motion.p>
+              )}
+
+              {/* CTA buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+                className="mt-10 flex flex-col sm:flex-row gap-4"
+              >
+                {ctaPrimary && (
+                  <a
+                    href={ctaPrimary.href}
+                    data-track="hero-appel"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-primary-900 transition-colors hover:bg-accent-400"
+                  >
+                    <Phone className="h-5 w-5" />
                     {ctaPrimary.label}
                   </a>
-                </Button>
-              )}
-              {ctaSecondary && (
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white/10 text-base px-8 py-6"
-                >
-                  <Link href={ctaSecondary.href} data-track="hero-devis">
+                )}
+                {ctaSecondary && (
+                  <Link
+                    href={ctaSecondary.href}
+                    data-track="hero-devis"
+                    className="inline-flex items-center justify-center rounded-lg border border-white/40 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
+                  >
                     {ctaSecondary.label}
                   </Link>
-                </Button>
-              )}
+                )}
+              </motion.div>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
-          <ChevronDown className="w-8 h-8 text-white animate-bounce" aria-hidden="true" />
+
+        {/* Scroll indicator */}
+        <div className="relative z-20 flex justify-center pb-8">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.4, duration: 0.6 }}
+          >
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ChevronDown className="h-8 w-8 text-white/60" aria-hidden="true" />
+            </motion.div>
+          </motion.div>
         </div>
+
+        {/* Bottom credential bar */}
+        {badges && badges.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="relative z-20 bg-primary-950/50 backdrop-blur-sm border-t border-white/10 rounded-t-3xl"
+          >
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5">
+              <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+                {badges.map((badge) => (
+                  <span
+                    key={badge}
+                    className="text-sm font-medium text-neutral-300"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
       </section>
     );
   }
@@ -118,13 +167,13 @@ export function HeroSection({
             priority={true}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-surface-dark/90 via-primary/60 to-primary/30 z-10" />
-        <div className="relative z-20 container mx-auto px-4 lg:px-8 max-w-7xl text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-white">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 to-black/80 z-10" />
+        <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             {title}
           </h1>
           {subtitle && (
-            <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-neutral-300 max-w-2xl mx-auto">
               {subtitle}
             </p>
           )}
@@ -135,48 +184,46 @@ export function HeroSection({
 
   // variant === "service"
   return (
-    <section className="py-12 md:py-20 bg-surface-warm">
-      <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+    <section className="py-12 md:py-20 bg-neutral-50">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-foreground leading-tight">
+            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 leading-tight tracking-tight">
               {title}
             </h1>
             {subtitle && (
-              <p className="mt-4 md:mt-6 text-lg text-muted-foreground leading-relaxed">
+              <p className="mt-4 md:mt-6 text-lg text-neutral-600 leading-relaxed">
                 {subtitle}
               </p>
             )}
             {badges && (
               <div className="mt-4 flex flex-wrap gap-2">
-                {badges.map((badge, index) => (
-                  <Badge
+                {badges.map((badge) => (
+                  <span
                     key={badge}
-                    variant="secondary"
-                    className={cn(
-                      "text-sm",
-                      index === badges.length - 1 && "hidden sm:inline-flex"
-                    )}
+                    className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-sm font-medium text-primary-800"
                   >
                     {badge}
-                  </Badge>
+                  </span>
                 ))}
               </div>
             )}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button
-                asChild
-                size="lg"
-                variant="cta"
+              <a
+                href={siteConfig.phoneHref}
+                data-track="service-hero-appel"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent-500 px-8 py-4 text-base font-semibold text-primary-900 transition-colors hover:bg-accent-400"
               >
-                <a href={siteConfig.phoneHref} data-track="service-hero-appel">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Appelez-nous — {siteConfig.phone}
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="/contact" data-track="service-hero-devis">Demander un devis gratuit</Link>
-              </Button>
+                <Phone className="h-5 w-5" />
+                Appelez-nous &mdash; {siteConfig.phone}
+              </a>
+              <Link
+                href="/contact"
+                data-track="service-hero-devis"
+                className="inline-flex items-center justify-center rounded-lg border border-neutral-300 px-8 py-4 text-base font-semibold text-neutral-900 transition-colors hover:bg-neutral-100"
+              >
+                Demander un devis gratuit
+              </Link>
             </div>
           </div>
           <div>
