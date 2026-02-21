@@ -86,19 +86,24 @@ export default function ContactPage() {
 
                 <Separator />
 
-                <div className="flex items-start gap-4">
+                <a
+                  href={siteConfig.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 hover:opacity-80 transition-opacity"
+                >
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground uppercase tracking-wide">Adresse</p>
-                    <p className="text-sm font-medium">
+                    <p className="text-sm font-medium text-primary underline underline-offset-2">
                       {siteConfig.address.street}
                       <br />
                       {siteConfig.address.postalCode} {siteConfig.address.city}
                     </p>
                   </div>
-                </div>
+                </a>
 
                 <Separator />
 
@@ -120,20 +125,18 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            {/* Carte Google Maps placeholder */}
+            {/* Carte Google Maps */}
             <div className="mt-6 rounded-xl overflow-hidden border">
-              <div
-                className="bg-muted aspect-video flex items-center justify-center"
-                role="img"
-                aria-label="Carte Google Maps — zone d'intervention"
-              >
-                <div className="text-center p-4">
-                  <MapPin className="w-10 h-10 text-primary/30 mx-auto mb-2" />
-                  <p className="text-xs text-muted-foreground italic">
-                    Intégrer ici l&apos;iframe Google Maps avec la zone d&apos;intervention
-                  </p>
-                </div>
-              </div>
+              <iframe
+                src={siteConfig.mapsEmbed}
+                width="100%"
+                height="260"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localisation RK Energies — Réalmont (81120)"
+              />
             </div>
           </div>
         </div>

@@ -155,7 +155,7 @@ export function HeroSection({
 
   if (variant === "page") {
     return (
-      <section className="relative py-16 md:py-20">
+      <section className="relative flex items-center justify-center min-h-[220px] py-16 md:py-24">
         <div className="absolute inset-0">
           <ImagePlaceholder
             prompt={imagePlaceholder.prompt}
@@ -167,8 +167,8 @@ export function HeroSection({
             priority={true}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 to-black/80 z-10" />
-        <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/75 z-10" />
+        <div className="relative z-20 w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             {title}
           </h1>

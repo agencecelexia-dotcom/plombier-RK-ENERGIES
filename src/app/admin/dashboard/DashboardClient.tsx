@@ -389,6 +389,7 @@ export function DashboardClient({ initialEvents, initialSubmissions }: Dashboard
   const [period, setPeriod] = useState<Period>("30d");
   const [tab, setTab] = useState<Tab>("overview");
   const [refreshing, setRefreshing] = useState(false);
+  const [actionError, setActionError] = useState<string | null>(null);
 
   // Filtered events
   const filtered = useMemo(
@@ -452,6 +453,7 @@ export function DashboardClient({ initialEvents, initialSubmissions }: Dashboard
   }
 
   async function handleUpdateStatus(id: string, status: Submission["status"]) {
+    setActionError(null);
     const res = await fetch("/api/admin/submissions", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -461,11 +463,14 @@ export function DashboardClient({ initialEvents, initialSubmissions }: Dashboard
       setSubmissions((prev) =>
         prev.map((s) => (s.id === id ? { ...s, status } : s))
       );
+    } else {
+      setActionError(`Erreur ${res.status} — impossible de mettre à jour.`);
     }
   }
 
   async function handleDelete(id: string) {
     if (!confirm("Supprimer cette demande ?")) return;
+    setActionError(null);
     const res = await fetch("/api/admin/submissions", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
@@ -473,6 +478,8 @@ export function DashboardClient({ initialEvents, initialSubmissions }: Dashboard
     });
     if (res.ok) {
       setSubmissions((prev) => prev.filter((s) => s.id !== id));
+    } else {
+      setActionError(`Erreur ${res.status} — impossible de supprimer.`);
     }
   }
 
@@ -513,12 +520,20 @@ export function DashboardClient({ initialEvents, initialSubmissions }: Dashboard
         <div className="mb-6 bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 flex items-start gap-3">
           <Info className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
           <div>
-            <p className="text-white font-medium">Bonjour Thomas !</p>
+            <p className="text-white font-medium">Bonjour Raphael !</p>
             <p className="text-sm text-slate-400 mt-0.5">
-              Les donnees affichees sont factices et servent uniquement a des fins de demonstration.
+              Les données affichées correspondent aux vraies visites et demandes de contact.
             </p>
           </div>
         </div>
+
+        {/* Error banner */}
+        {actionError && (
+          <div className="mb-4 bg-red-500/10 border border-red-500/30 rounded-xl p-3 flex items-center justify-between text-sm text-red-300">
+            <span>{actionError}</span>
+            <button onClick={() => setActionError(null)} className="ml-4 text-red-400 hover:text-red-200">✕</button>
+          </div>
+        )}
 
         {/* Controls */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">

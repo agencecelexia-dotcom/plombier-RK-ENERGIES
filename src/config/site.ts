@@ -8,12 +8,14 @@ export const siteConfig = {
   phoneHref: "tel:+33755602186",
   email: "rk.energies81@gmail.com",
   address: {
-    street: "Tarn",
-    city: "Albi",
-    postalCode: "81000",
+    street: "34 avenue Flandres Dunkerque",
+    city: "Réalmont",
+    postalCode: "81120",
     region: "Occitanie",
     country: "France",
   },
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=34+Avenue+Flandres+Dunkerque,+81120+R%C3%A9almont",
+  mapsEmbed: "https://maps.google.com/maps?q=34+Avenue+Flandres+Dunkerque,+81120+R%C3%A9almont,+France&output=embed&z=15",
   openingHours: {
     weekdays: "7h - 20h",
     saturday: "8h - 18h",
